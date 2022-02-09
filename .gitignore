@@ -1,0 +1,4 @@
+# gitignore for arctraining.cdt_fluids_2022
+
+# built book
+**/_build/*
