@@ -75,3 +75,41 @@ some additional documents to help understand the requirements.
 For example, if the project is related to data collection, a Data Flow Diagram
 can be help to track all variables, their connections and clarify requirements.
 ```
+
+## Design
+
+Translate the Software Requirement Specification into Design: *What is the
+software architecture?*
+
+To design software, the *object-oriented* approach is the predominant
+programming paradigm.
+
+```{admonition} Object-oriented components
+* **Classes**: A user-defined type
+* **Object instances**:  A particular object instantiated from a class.
+* **Methods**: A function which is “built in” to a class
+* **Constructor**: A special method called when instantiating a new object
+```
+
+The design usually includes descriptions of the architecture overview (high
+level design) and the design of its components (low-level design).
+
+```{tip}
+When design an object-oriented software you must follow some principles, like:
+
+* Abstraction
+* Encapsulation
+* Decomposition
+* Generalisation
+```
+
+The design can be described using a class diagram in the Unified Modelling
+Language (UML). See below an UML class diagram for a purchasing system software:
+
+![Class Diagram Example: Order System](https://cdn-images.visual-paradigm.com/guide/uml/uml-class-diagram-tutorial/17-class-diagram-example-order-system.png)
+
+```{seealso}
+This UML example and a complete UML class diagram tutorial is provided by Visual
+Paradigm [here](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/).
+<!-- is there any better reference for UML? -->
+```
