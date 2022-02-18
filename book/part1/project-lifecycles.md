@@ -113,3 +113,28 @@ This UML example and a complete UML class diagram tutorial is provided by Visual
 Paradigm [here](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/).
 <!-- is there any better reference for UML? -->
 ```
+
+## Development
+
+Translate the design document into a software. *Is this where the fun begins?*
+
+```{admonition} Take your time!
+:class: tip
+Development is usually the most time consuming step in a Software Development
+Life Cycle.
+```
+
+The development can be done using different methodologies:
+
+* Waterfall: linear approach.
+  * Each step must be completed before start a new one.
+  * Changes in the original plan requires a restart in the development step.
+* Agile: incremental approach.
+  * Development divided in iterations (ongoing design).
+  * May include development in parallel.
+  * Continuous delivery.
+
+```{note}
+In the Agile methodology the Software Development Life Cycle steps presented 
+here are not linear.
+```
