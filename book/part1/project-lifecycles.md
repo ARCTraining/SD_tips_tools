@@ -174,3 +174,18 @@ the operating system and versions of packages and other software related to the
 project. Listing these specifications will help others to replicate the
 environment in which the software was developed.
 ```
+
+## Maintenance
+
+*Is it over?*
+
+The work doesn't end with the software deployment. In order for the software to
+remain functional over time, it is necessary to provide some maintenance.
+
+We can classify maintenance into a few categories:
+
+* **Corrective**: fix reported errors/failures.
+* **Preventive**: regular checks and fixes.
+* **Perfective**: optimize implemented features add new features.
+* **Adaptive**: keep the software updated according to changes external to the
+project (new programming language version, new regulation, etc.).
