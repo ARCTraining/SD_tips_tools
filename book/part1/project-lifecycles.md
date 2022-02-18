@@ -159,3 +159,18 @@ If any problems are identified, the code returns to the development stage.
 Oce fixed, the testing step must be performed again.
 ```
 
+## Deployment
+
+Make the software available. *Can other people use my code?*
+
+```{tip}
+You can use platforms like [GitHub](https://github.com/) to release your
+software.
+```
+
+```{warning}
+The functionality of the software is linked to several specifications related to
+the operating system and versions of packages and other software related to the
+project. Listing these specifications will help others to replicate the
+environment in which the software was developed.
+```
