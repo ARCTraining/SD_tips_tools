@@ -138,3 +138,24 @@ The development can be done using different methodologies:
 In the Agile methodology the Software Development Life Cycle steps presented 
 here are not linear.
 ```
+
+## Testing
+
+Ensure that the software meets the requirements. *Is this software good?*
+
+In this step, errors and failures are identified by exposing the code to an
+environment similar to the end-user experience.
+
+There are several types of testing, some examples include:
+
+* **Unit testing**: are all components working?
+* **Performance testing**: how does the software perform against different
+workloads? It is fast? Stable?
+* **Functional testing**: is it the software is aligned with Software
+Requirement Specification?
+
+```{note}
+If any problems are identified, the code returns to the development stage.
+Oce fixed, the testing step must be performed again.
+```
+
