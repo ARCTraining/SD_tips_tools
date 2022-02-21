@@ -53,7 +53,7 @@ The Agile principles:
 
 ```{admonition} Agile is not absence of methodology
 :class: warning
-The Agile movement is not anti-methodology, in fact, many of us want to restore credibility to the word methodology. We want to restore a balance. We embrace modeling, but not in order to file some diagram in a dusty corporate repository. We embrace documentation, but not hundreds of pages of never-maintained and rarely-used tomes. We plan, but recognize the limits of planning in a turbulent environment.
+The Agile movement is not anti-methodology, in fact, many of us want to restore credibility to the word methodology. We want to restore a balance. We embrace modelling, but not in order to file some diagram in a dusty corporate repository. We embrace documentation, but not hundreds of pages of never-maintained and rarely-used tomes. We plan, but recognize the limits of planning in a turbulent environment.
 
 \- Jim Highsmith from [The Alan Turing Institute](https://alan-turing-institute.github.io/rse-course/html/module06_software_projects/06_06_software_development.html#agile-is-not-absence-of-process)
 ```
