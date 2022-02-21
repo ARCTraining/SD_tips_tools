@@ -68,3 +68,20 @@ The Agile movement is not anti-methodology, in fact, many of us want to restore 
 - Iterative development
 - Continuous delivery
 - Self-organising teams
+
+## Agile methodologies
+
+There are several methodologies that can be used to manage an agile project,
+including:
+
+- DAD (disciplined agile delivery)
+- DSDM (dynamic systems development method)
+- **Kanban**
+- Lean
+- LeSS (large-scale Scrum)
+- RAD (rapid application development)
+- SAFe (scaled agile framework enterprise)
+- Scaled agile
+- **Scrum**
+- Scrum of scrums
+- XP (eXtreme Programming)
