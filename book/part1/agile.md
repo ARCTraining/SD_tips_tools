@@ -11,3 +11,13 @@
 
 \- [The Alan Turing Institute](https://alan-turing-institute.github.io/rse-course/html/module06_software_projects/06_06_software_development.html#why-waterfall)
 
+## Traditional versus Agile
+
+> The traditional approach (Waterfall) argues that the elements of design should
+> occur in order: first requirements capture, then functional design, then
+> architectural design. This approach is based on the idea that if a mistake is
+> made in the design, then programming effort is wasted, so **significant effort
+> is spent in trying to ensure that requirements are well understood and that
+> the design is correct before programming starts**.
+
+\- [The Alan Turing Institute](https://alan-turing-institute.github.io/rse-course/html/module06_software_projects/06_06_software_development.html#waterfall)
