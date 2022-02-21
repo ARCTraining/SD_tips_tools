@@ -1,4 +1,4 @@
-# Agile methodologies
+# Project management methodologies
 
 ## Why choose a project management  methodology?
 
