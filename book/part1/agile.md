@@ -33,6 +33,10 @@
 
 \- [Association for Project Management (APM)](https://www.apm.org.uk/resources/find-a-resource/agile-project-management/?gclid=CjwKCAiAgbiQBhAHEiwAuQ6Bkh-wsdy67h4_Ajehlwh3BGK2sPrcHP9tHXYwxrn7ReKjdT8LpOeyORoC_sEQAvD_BwE)
 
+![Traditional x Agile chart](https://www.apm.org.uk/media/40973/what-is-agile-project-management.png?width=1049&height=525)
+
+\- Figure from [Association for Project Management](https://www.apm.org.uk/)
+
 ## The Agile Manifesto
 
 > We are uncovering better ways of developing software by doing it and helping
