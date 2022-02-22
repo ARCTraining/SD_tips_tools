@@ -35,3 +35,32 @@ bellow:
 Note that the in a Kanban board the task begins on the left side and as the task
 progresses through the execution steps, it is moved to the right lanes.
 ```
+
+## Useful Cards Content
+
+- Title
+- Description
+- Attachments and links
+- Card type (usually distinguished by color)
+- Assignment
+- Card & comment history
+- Subtasks
+- Due date
+
+## Software Development: Useful Lanes
+
+- Backlog (To Do: Unprioritized)
+- Ready (To Do: Prioritized)
+- Plan
+- Develop (Coding)
+- Testing
+- Pending Final Approval
+- Deployment
+- Done
+
+## Useful Improvements
+
+- Work-in-progress (WIP) limit: number of allowed open cards
+- Include more lanes
+- Priority lanes
+- Swimlanes: horizontal line to divide different groups
