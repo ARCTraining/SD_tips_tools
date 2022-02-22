@@ -65,6 +65,10 @@ progresses through the execution steps, it is moved to the right lanes.
 - Priority lanes
 - Swimlanes: horizontal line to divide different groups
 
+See a Kanban board with some improvements bellow:
+
+![Kanban board: more content example](../assets/img/kanban2.jpg)
+
 ## Kanban: Pros & Cons
 
 ### Pros
