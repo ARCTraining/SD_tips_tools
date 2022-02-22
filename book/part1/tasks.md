@@ -17,3 +17,21 @@ methods such as Scrum.
 Kanban can be used to managing workflow from the individual up to organizational
 level.
 
+## Simple Kanban Board
+
+The Kanban board helps to visualize and optimise the workflow.
+The board is organised through lanes (columns) and cards, where:
+
+- **Lanes**: defined steps
+- **Cards**: represent project tasks
+
+By separating the cards in lanes it is easy to see the status of each task as
+well as the entire project workflow. See a simple Kanban board representation
+bellow:
+
+![Kanban board simple example](../assets/img/kanban1.jpg)
+
+```{tip}
+Note that the in a Kanban board the task begins on the left side and as the task
+progresses through the execution steps, it is moved to the right lanes.
+```
