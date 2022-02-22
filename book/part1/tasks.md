@@ -64,3 +64,27 @@ progresses through the execution steps, it is moved to the right lanes.
 - Include more lanes
 - Priority lanes
 - Swimlanes: horizontal line to divide different groups
+
+## Kanban: Pros & Cons
+
+### Pros
+
+- Easy integration
+- Increased visibility of the workflow
+- Improved delivery speed
+- Increased transparency
+
+### Cons
+
+- absolutely necessary that the work can actually be divided into small steps
+
+### Trick
+
+> The work-in-progress limits ensure that problems at a station quickly become
+> visible and capacities can be reallocated accordingly. However, this is only
+> possible if capacities can actually be swapped around. Team members must be
+> able to work at different stations. Otherwise, blockages and overstraining
+> will occur for some co-workers, while others will become idle – precisely the
+> opposite of what Kanban is intended to achieve.
+
+\- [IONOS](https://www.ionos.co.uk/digitalguide/websites/web-development/about-kanban/#c173586)
