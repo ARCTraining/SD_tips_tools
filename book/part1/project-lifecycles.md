@@ -17,7 +17,7 @@ However, this is just a step in the software development process.
 
 ## Ideation
 
-First is necessary define a problem to solve: *What are we going to do?*
+First it is necessary to define a problem to solve: *What are we going to do?*
 
 Two techniques are useful in the Ideation step:
 
