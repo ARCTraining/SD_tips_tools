@@ -156,7 +156,7 @@ Requirement Specification?
 
 ```{note}
 If any problems are identified, the code returns to the development stage.
-Oce fixed, the testing step must be performed again.
+Once fixed, the testing step must be performed again.
 ```
 
 ## Deployment
