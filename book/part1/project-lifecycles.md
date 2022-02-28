@@ -31,7 +31,7 @@ rejecting bad ones.
 
 ```{admonition} Research
 To create relevant work it is necessary to know the context in which it will
-inserted. Research helps to validate ideas from brainstorming sessions
+exist. Research helps to validate ideas from brainstorming sessions
 ```
 
 ## Requirements
