@@ -26,7 +26,7 @@ Two techniques are useful in the Ideation step:
 
 ```{admonition} Brainstorming
 Brainstorming helps to explore your project concepts, generate new ideas, and 
-reject bad ones.
+rejecting bad ones.
 ```
 
 ```{admonition} Research
