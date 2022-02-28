@@ -91,7 +91,7 @@ programming paradigm.
 * **Constructor**: A special method called when instantiating a new object
 ```
 
-The design usually includes descriptions of the architecture overview (high
+The design usually includes descriptions of the architecture overview (high-
 level design) and the design of its components (low-level design).
 
 ```{tip}
