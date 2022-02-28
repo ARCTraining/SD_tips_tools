@@ -30,7 +30,7 @@ rejecting bad ones.
 ```
 
 ```{admonition} Research
-To create a relevant work it is necessary to know the environment in which it is
+To create relevant work it is necessary to know the context in which it will
 inserted. Research helps to validate ideas from brainstorming sessions
 ```
 
