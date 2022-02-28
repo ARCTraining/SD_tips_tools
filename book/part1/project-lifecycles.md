@@ -151,7 +151,7 @@ There are several types of testing, some examples include:
 * **Unit testing**: are all components working?
 * **Performance testing**: how does the software perform against different
 workloads? It is fast? Stable?
-* **Functional testing**: is it the software is aligned with Software
+* **Functional testing**: is the software aligned with Software
 Requirement Specification?
 
 ```{note}
