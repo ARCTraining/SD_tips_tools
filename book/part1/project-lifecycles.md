@@ -81,8 +81,7 @@ can be help to track all variables, their connections and clarify requirements.
 Translate the Software Requirement Specification into Design: *What is the
 software architecture?*
 
-When designing software, the *object-oriented* approach is the predominant
-programming paradigm.
+When designing software, the *object-oriented* approach is a common programming paradigm.
 
 ```{admonition} Object-oriented components
 * **Classes**: A user-defined type
