@@ -148,6 +148,7 @@ environment similar to the end-user experience.
 There are several types of testing, some examples include:
 
 * **Unit testing**: are all components working?
+* **Integration testing": are all components working when fitted together?
 * **Performance testing**: how does the software perform against different
 workloads? It is fast? Stable?
 * **Functional testing**: is the software aligned with Software
