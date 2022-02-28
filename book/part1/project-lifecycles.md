@@ -186,6 +186,6 @@ We can classify maintenance into a few categories:
 
 * **Corrective**: fix reported errors/failures.
 * **Preventive**: regular checks and fixes.
-* **Perfective**: optimize implemented features add new features.
+* **Perfective**: optimize implemented features, adding new features.
 * **Adaptive**: keep the software updated according to changes external to the
 project (new programming language version, new regulation, etc.).
