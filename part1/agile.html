@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agile methodologies &#8212; Software development - good practices and tips</title>
+    <title>Project management methodologies &#8212; Software development - good practices and tips</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Breaking projects into tasks; Kanban charts and managing tasks" href="tasks.html" />
+    <link rel="next" title="Tasks &amp; Kanban" href="tasks.html" />
     <link rel="prev" title="Software Development Life Cycle" href="project-lifecycles.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -121,17 +121,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Agile methodologies
+     Project management methodologies
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tasks.html">
-     Breaking projects into tasks; Kanban charts and managing tasks
+     Tasks &amp; Kanban
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="structure.html">
-     Organising self, project and file structure for a coding project
+     Laying out a coding project
     </a>
    </li>
    <li class="toctree-l2">
@@ -409,6 +409,39 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-choose-a-project-management-methodology">
+   Why choose a project management  methodology?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#traditional-versus-agile">
+   Traditional versus Agile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-agile-manifesto">
+   The Agile Manifesto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elements-of-an-agile-process">
+   Elements of an Agile Process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agile-methodologies">
+   Agile methodologies
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -416,19 +449,140 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Agile methodologies</h1>
+                <h1>Project management methodologies</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-choose-a-project-management-methodology">
+   Why choose a project management  methodology?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#traditional-versus-agile">
+   Traditional versus Agile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-agile-manifesto">
+   The Agile Manifesto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elements-of-an-agile-process">
+   Elements of an Agile Process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agile-methodologies">
+   Agile methodologies
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="agile-methodologies">
-<h1>Agile methodologies<a class="headerlink" href="#agile-methodologies" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="project-management-methodologies">
+<h1>Project management methodologies<a class="headerlink" href="#project-management-methodologies" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-choose-a-project-management-methodology">
+<h2>Why choose a project management  methodology?<a class="headerlink" href="#why-choose-a-project-management-methodology" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Without a design approach, programmers resort to designing as we go, typing in
+code, trying what works, and making it up as we go along. When trying to
+collaborate to make software with others this can result in lots of wasted
+time, software that only the author understands, components built by
+colleagues that don’t work together, or code that the programmer thinks is
+nice but that doesn’t meet the user’s requirements.</p>
+</div></blockquote>
+<p>- <a class="reference external" href="https://alan-turing-institute.github.io/rse-course/html/module06_software_projects/06_06_software_development.html#why-waterfall">The Alan Turing Institute</a></p>
+</div>
+<div class="section" id="traditional-versus-agile">
+<h2>Traditional versus Agile<a class="headerlink" href="#traditional-versus-agile" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The traditional approach (Waterfall) argues that the elements of design should
+occur in order: first requirements capture, then functional design, then
+architectural design. This approach is based on the idea that if a mistake is
+made in the design, then programming effort is wasted, so <strong>significant effort
+is spent in trying to ensure that requirements are well understood and that
+the design is correct before programming starts</strong>.</p>
+</div></blockquote>
+<p>- <a class="reference external" href="https://alan-turing-institute.github.io/rse-course/html/module06_software_projects/06_06_software_development.html#waterfall">The Alan Turing Institute</a></p>
+<blockquote>
+<div><p>Agile project management is an iterative approach to delivering a project
+throughout its life cycle. Iterative or agile life cycles are composed of
+several iterations or incremental steps towards the completion of a project.
+Iterative approaches are frequently used in software development projects to
+promote velocity and adaptability since the benefit of iteration is that you
+can adjust as you go along rather than following a linear path. One of the
+aims of an agile or iterative approach is to release benefits throughout the
+process rather than only at the end.</p>
+</div></blockquote>
+<p>- <a class="reference external" href="https://www.apm.org.uk/resources/find-a-resource/agile-project-management/?gclid=CjwKCAiAgbiQBhAHEiwAuQ6Bkh-wsdy67h4_Ajehlwh3BGK2sPrcHP9tHXYwxrn7ReKjdT8LpOeyORoC_sEQAvD_BwE">Association for Project Management (APM)</a></p>
+<p><img alt="Traditional x Agile chart" src="https://www.apm.org.uk/media/40973/what-is-agile-project-management.png?width=1049&amp;height=525" /></p>
+<p>- Figure from <a class="reference external" href="https://www.apm.org.uk/">Association for Project Management</a></p>
+</div>
+<div class="section" id="the-agile-manifesto">
+<h2>The Agile Manifesto<a class="headerlink" href="#the-agile-manifesto" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>We are uncovering better ways of developing software by doing it and helping
+others do it.</p>
+</div></blockquote>
+<p>The Agile principles:</p>
+<ul class="simple">
+<li><p><strong>Individuals and interactions</strong> over processes and tools</p></li>
+<li><p><strong>Working software</strong> over comprehensive documentation</p></li>
+<li><p><strong>Customer collaboration</strong> over contract negotiation</p></li>
+<li><p><strong>Responding to change</strong> over following a plan</p></li>
+</ul>
+<p>- <a class="reference external" href="http://agilemanifesto.org/">Manifesto for Agile Software Development</a></p>
+<div class="warning admonition">
+<p class="admonition-title">Agile is not absence of methodology</p>
+<p>The Agile movement is not anti-methodology, in fact, many of us want to restore credibility to the word methodology. We want to restore a balance. We embrace modelling, but not in order to file some diagram in a dusty corporate repository. We embrace documentation, but not hundreds of pages of never-maintained and rarely-used tomes. We plan, but recognize the limits of planning in a turbulent environment.</p>
+<p>- Jim Highsmith from <a class="reference external" href="https://alan-turing-institute.github.io/rse-course/html/module06_software_projects/06_06_software_development.html#agile-is-not-absence-of-process">The Alan Turing Institute</a></p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="http://agilemanifesto.org/principles.html">Twelve Principles Behind the Agile Manifesto</a></p>
+</div>
+</div>
+<div class="section" id="elements-of-an-agile-process">
+<h2>Elements of an Agile Process<a class="headerlink" href="#elements-of-an-agile-process" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Ongoing design</p></li>
+<li><p>Iterative development</p></li>
+<li><p>Continuous delivery</p></li>
+<li><p>Self-organising teams</p></li>
+</ul>
+</div>
+<div class="section" id="agile-methodologies">
+<h2>Agile methodologies<a class="headerlink" href="#agile-methodologies" title="Permalink to this headline">¶</a></h2>
+<p>There are several methodologies that can be used to manage an agile project,
+including:</p>
+<ul class="simple">
+<li><p>DAD (disciplined agile delivery)</p></li>
+<li><p>DSDM (dynamic systems development method)</p></li>
+<li><p><strong>Kanban</strong></p></li>
+<li><p>Lean</p></li>
+<li><p>LeSS (large-scale Scrum)</p></li>
+<li><p>RAD (rapid application development)</p></li>
+<li><p>SAFe (scaled agile framework enterprise)</p></li>
+<li><p>Scaled agile</p></li>
+<li><p><strong>Scrum</strong></p></li>
+<li><p>Scrum of scrums</p></li>
+<li><p>XP (eXtreme Programming)</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -466,7 +620,7 @@ const thebe_selector_output = ".output, .cell_output"
     <a class='right-next' id="next-link" href="tasks.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Breaking projects into tasks; Kanban charts and managing tasks</p>
+        <p class="prev-next-title">Tasks &amp; Kanban</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

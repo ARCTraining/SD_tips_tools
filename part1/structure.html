@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Organising self, project and file structure for a coding project &#8212; Software development - good practices and tips</title>
+    <title>Laying out a coding project &#8212; Software development - good practices and tips</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Managing data for a data focussed project" href="data.html" />
-    <link rel="prev" title="Breaking projects into tasks; Kanban charts and managing tasks" href="tasks.html" />
+    <link rel="prev" title="Tasks &amp; Kanban" href="tasks.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -121,17 +121,17 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="agile.html">
-     Agile methodologies
+     Project management methodologies
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tasks.html">
-     Breaking projects into tasks; Kanban charts and managing tasks
+     Tasks &amp; Kanban
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Organising self, project and file structure for a coding project
+     Laying out a coding project
     </a>
    </li>
    <li class="toctree-l2">
@@ -409,6 +409,58 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-structure-suggestion">
+   Basic Structure Suggestion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modules-packages">
+   Modules &amp; Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-pytest">
+   Test &amp; pytest
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naming-conventions">
+   Naming conventions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-project-structure">
+   Creating project structure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conda-cookie-cutter">
+     Conda + Cookie cutter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#poetry">
+     Poetry
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pyproject-toml">
+       pyproject.toml
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -416,19 +468,292 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Organising self, project and file structure for a coding project</h1>
+                <h1>Laying out a coding project</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-structure-suggestion">
+   Basic Structure Suggestion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modules-packages">
+   Modules &amp; Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-pytest">
+   Test &amp; pytest
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naming-conventions">
+   Naming conventions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-project-structure">
+   Creating project structure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conda-cookie-cutter">
+     Conda + Cookie cutter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#poetry">
+     Poetry
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pyproject-toml">
+       pyproject.toml
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="organising-self-project-and-file-structure-for-a-coding-project">
-<h1>Organising self, project and file structure for a coding project<a class="headerlink" href="#organising-self-project-and-file-structure-for-a-coding-project" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="laying-out-a-coding-project">
+<h1>Laying out a coding project<a class="headerlink" href="#laying-out-a-coding-project" title="Permalink to this headline">¶</a></h1>
+<p>Good project layout ensures:</p>
+<ul class="simple">
+<li><p>Integrity of the data</p></li>
+<li><p>Portability of the project</p></li>
+<li><p>Ease to pick the project back up after a break or change in personnel</p></li>
+</ul>
+<p>There is no single way to organise a project…. but we need to take advantage
+some conventions.</p>
+<div class="section" id="basic-structure-suggestion">
+<h2>Basic Structure Suggestion<a class="headerlink" href="#basic-structure-suggestion" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you want to create a <strong>Python</strong> repository called <code class="docutils literal notranslate"><span class="pre">first-model</span></code>.
+The most basic structure for this project should look like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>first-model
+├── first_model
+│   └── __init__.py
+└── tests
+<span class="p">|</span>   ├── __init__.py
+<span class="p">|</span>   └── test_first_model.py
+├── README.md
+├── requirements
+└── setup
+</pre></div>
+</div>
+</div>
+<div class="section" id="modules-packages">
+<h2>Modules &amp; Packages<a class="headerlink" href="#modules-packages" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Modules: code files with <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension</p></li>
+<li><p>Packages: directory to group modules. For a folder with several modules to be
+recognized as a package it is necessary to include the file <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You also can group your modules in sub-packages.</p>
+</div>
+</div>
+<div class="section" id="test-pytest">
+<h2>Test &amp; pytest<a class="headerlink" href="#test-pytest" title="Permalink to this headline">¶</a></h2>
+<p>It’s important to ensure that the code is bug-free and returns the expected
+results. Later in this course we will delve into how to properly test our code.
+For the moment let’s look at the test structure:</p>
+<ul class="simple">
+<li><p>All tests units (files and methods) must be named starting with <code class="docutils literal notranslate"><span class="pre">test_</span></code>
+and placed inside a package (or subpackage) called <code class="docutils literal notranslate"><span class="pre">tests</span></code>.</p></li>
+<li><p>Tests can be grouped in just one folder for the entire repository (as shown in
+the structure above) or they can be organized within each package/subpackage.</p></li>
+</ul>
+<p>By organizing tests as described, you can use frameworks like
+<a class="reference external" href="https://pypi.org/project/pytest/">pytest</a> to automatically fetch all test files
+in the repository and execute them.</p>
+<blockquote>
+<div><p>The pytest framework makes it easy to write small tests, yet scales to support
+complex functional testing for applications and libraries.</p>
+</div></blockquote>
+<p>- <a class="reference external" href="https://pypi.org/project/pytest/">pytest</a></p>
+<p>Consider the following method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>See the <code class="docutils literal notranslate"><span class="pre">test_sample.py</span></code> example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># content of test_sample.py</span>
+<span class="k">def</span> <span class="nf">test_answer</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">inc</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>By simple executing <code class="docutils literal notranslate"><span class="pre">pytest</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">pytest</span>
+<span class="o">=============================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">=============================</span>
+collected <span class="m">1</span> items
+
+test_sample.py <span class="nv">F</span>
+
+<span class="o">==================================</span> <span class="nv">FAILURES</span> <span class="o">===================================</span>
+_________________________________ test_answer _________________________________
+
+    def test_answer<span class="o">()</span>:
+&gt;       assert inc<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">==</span> <span class="m">5</span>
+E       assert <span class="nv">4</span> <span class="o">==</span> <span class="m">5</span>
+E        +  where <span class="nv">4</span> <span class="o">=</span> inc<span class="o">(</span><span class="m">3</span><span class="o">)</span>
+
+test_sample.py:5: <span class="nv">AssertionError</span>
+<span class="o">==========================</span> <span class="m">1</span> failed <span class="k">in</span> <span class="m">0</span>.04 <span class="nv">seconds</span> <span class="o">===========================</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="naming-conventions">
+<h2>Naming conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this headline">¶</a></h2>
+<p>Python conventions are governed largely by a set of documents called Python
+Enhancement Proposals (PEP). You can see more about PEP index in the official
+<a class="reference external" href="https://www.python.org/dev/peps/">Python website</a>.</p>
+<p>The PEP related with python coding style is the
+<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8 – Style Guide for Python Code</a>.</p>
+<p>This file has guidance for all layout related aspects. For instance we are
+interested in the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#package-and-module-names">Package and Module Names</a> section.</p>
+<blockquote>
+<div><p>Modules should have short, all-lowercase names. Underscores can be used in
+the module name if it improves readability. Python packages should also have
+short, all-lowercase names, although the use of underscores is discouraged.</p>
+</div></blockquote>
+</div>
+<div class="section" id="creating-project-structure">
+<h2>Creating project structure<a class="headerlink" href="#creating-project-structure" title="Permalink to this headline">¶</a></h2>
+<p>You can create a project structure manually. But there are some standard
+approaches for this.</p>
+<div class="section" id="conda-cookie-cutter">
+<h3>Conda + Cookie cutter<a class="headerlink" href="#conda-cookie-cutter" title="Permalink to this headline">¶</a></h3>
+<p>After create an empty repository, you can create and then activate our conda
+environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n reproPython <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+$ <span class="nb">source</span> activate reproPython
+</pre></div>
+</div>
+<p>The next step is to install cookiecutter (instructions
+<a class="reference external" href="https://pypi.org/project/cookiecutter/">here</a>).</p>
+<blockquote>
+<div><p>Cookiecutter is a command-line utility that creates projects from
+cookiecutters (project templates), e.g. creating a Python package project
+from a Python package project template.</p>
+</div></blockquote>
+<p>Then you must choose a project template.
+A good example to be used in scientific projects can be found here:
+<code class="docutils literal notranslate"><span class="pre">https://github.com/mkrapp/cookiecutter-reproducible-science.</span></code></p>
+<p>Now we can create the project structure by combining the Cookiecutter package
+with the GitHub repository. Again from the shell:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cookiecutter gh:mkrapp/cookiecutter-reproducible-science
+</pre></div>
+</div>
+<p>By using this method, the project structure should look like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
+├── AUTHORS.md
+├── LICENSE
+├── README.md
+├── bin                &lt;- Your compiled model code can be stored here <span class="o">(</span>not tracked by git<span class="o">)</span>
+├── config             &lt;- Configuration files, e.g., <span class="k">for</span> doxygen or <span class="k">for</span> your model <span class="k">if</span> needed
+├── data
+│   ├── external       &lt;- Data from third party sources.
+│   ├── interim        &lt;- Intermediate data that has been transformed.
+│   ├── processed      &lt;- The final, canonical data sets <span class="k">for</span> modeling.
+│   └── raw            &lt;- The original, immutable data dump.
+├── docs               &lt;- Documentation, e.g., doxygen or scientific papers <span class="o">(</span>not tracked by git<span class="o">)</span>
+├── notebooks          &lt;- Ipython or R notebooks
+├── reports            &lt;- For a manuscript source, e.g., LaTeX, Markdown, etc., or any project reports
+│   └── figures        &lt;- Figures <span class="k">for</span> the manuscript or reports
+└── src                &lt;- Source code <span class="k">for</span> this project
+    ├── data           &lt;- scripts and programs to process data
+    ├── external       &lt;- Any external <span class="nb">source</span> code, e.g., pull other git projects, or external libraries
+    ├── models         &lt;- Source code <span class="k">for</span> your own model
+    ├── tools          &lt;- Any helper scripts go here
+    └── visualization  &lt;- Scripts <span class="k">for</span> visualisation of your results, e.g., matplotlib, ggplot2 related.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this structure all project source code was organized into a <code class="docutils literal notranslate"><span class="pre">src</span></code> folder.</p>
+</div>
+</div>
+<div class="section" id="poetry">
+<h3>Poetry<a class="headerlink" href="#poetry" title="Permalink to this headline">¶</a></h3>
+<p>Note in the above example the environment was managed through <code class="docutils literal notranslate"><span class="pre">conda</span></code> and the
+project structure was created using <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code> (you also had to specify the
+template).</p>
+<p>If you want to do all the procedures using just one tool – from the
+environment creation up to the project deployment – an excellent option
+is the <a class="reference external" href="https://python-poetry.org/">Poetry</a> tool.</p>
+<blockquote>
+<div><p>Poetry is a tool for dependency management and packaging in Python. It allows
+you to declare the libraries your project depends on and it will manage
+(install/update) them for you.</p>
+</div></blockquote>
+<p>See Poetry installation instructions <a class="reference external" href="https://python-poetry.org/docs/#osx--linux--bashonwindows-install-instructions">here</a></p>
+<p>To create the <code class="docutils literal notranslate"><span class="pre">first-model</span></code> project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry new first-model
+</pre></div>
+</div>
+<p>By running <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">new</span> <span class="pre">first-model</span></code>, you create a new folder named
+<code class="docutils literal notranslate"><span class="pre">first-model/</span></code>. When you look inside the folder, you’ll see a structure:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>first-model/
+│
+├── first_model/
+│   └── __init__.py
+│
+├── tests/
+│   ├── __init__.py
+│   └── test_first_model.py
+│
+├── README.rst
+└── pyproject.toml
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All the necessary folders and files are created following PEP8 conventions.</p>
+</div>
+<p>If you prefer organize the source code inside a <code class="docutils literal notranslate"><span class="pre">src</span></code> folder, you can create
+the project with the <code class="docutils literal notranslate"><span class="pre">--src</span></code> flag, like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry new --src first-model
+</pre></div>
+</div>
+<p>See <a class="reference external" href="https://python-poetry.org/docs/cli/">here</a> for more Poetry supported
+commands.</p>
+<div class="section" id="pyproject-toml">
+<h4>pyproject.toml<a class="headerlink" href="#pyproject-toml" title="Permalink to this headline">¶</a></h4>
+<p>The file <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> is a configuration file that follows standard that
+was defined in PEP 518 and looks like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>tool.poetry<span class="o">]</span>
+<span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;first-model&quot;</span>
+<span class="nv">version</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span>
+<span class="nv">description</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="nv">authors</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;author name &lt;author email&gt;&quot;</span><span class="o">]</span>
+
+<span class="o">[</span>tool.poetry.dependencies<span class="o">]</span>
+<span class="nv">python</span> <span class="o">=</span> <span class="s2">&quot;3.8&quot;</span>
+
+<span class="o">[</span>tool.poetry.dev-dependencies<span class="o">]</span>
+<span class="nv">pytest</span> <span class="o">=</span> <span class="s2">&quot;^3.4&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -460,7 +785,7 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Breaking projects into tasks; Kanban charts and managing tasks</p>
+            <p class="prev-next-title">Tasks &amp; Kanban</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="data.html" title="next page">
