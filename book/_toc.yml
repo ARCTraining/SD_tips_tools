@@ -14,7 +14,7 @@ parts:
     - file: part1/tasks
     - file: part1/structure
     - file: part1/data
-    - file: part1/management-plans
+    - file: part1/package-managers
     - file: part1/environment
     - file: part1/vsc
 
