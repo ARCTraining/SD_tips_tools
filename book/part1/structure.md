@@ -26,3 +26,12 @@ first-model
 └── setup
 ```
 
+## Modules & Packages
+
+- Modules: code files with `.py` extension
+- Packages: directory to group modules. For a folder with several modules to be
+recognized as a package it is necessary to include the file `__init__.py`.
+
+```{note}
+You also can group your modules in sub-packages.
+```
