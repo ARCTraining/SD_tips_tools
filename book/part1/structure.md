@@ -92,3 +92,18 @@ test_sample.py:5: AssertionError
 ========================== 1 failed in 0.04 seconds ===========================
 ```
 
+## Naming conventions
+
+Python conventions are governed largely by a set of documents called Python
+Enhancement Proposals (PEP). You can see more about PEP index in the official
+[Python website](https://www.python.org/dev/peps/).
+
+The PEP related with python coding style is the
+[PEP8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/).
+
+This file has guidance for all layout related aspects. For instance we are
+interested in the [Package and Module Names](https://www.python.org/dev/peps/pep-0008/#package-and-module-names) section.
+
+> Modules should have short, all-lowercase names. Underscores can be used in
+> the module name if it improves readability. Python packages should also have
+> short, all-lowercase names, although the use of underscores is discouraged.
