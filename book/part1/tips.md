@@ -61,3 +61,14 @@ class foo(object):
 ```{warning}
 Note that `black` just fix the code layout - this code still has syntax error!
 ```
+
+## Integrated development environment (IDE)
+
+Using an Integrated development environment (IDE) will certainly save you time,
+but the advantages of using an IDE go beyond that. Below are some IDE advantages
+
+1. Syntax highlighting
+2. Text autocompletion
+3. Refactoring options
+4. Easily Importing libraries
+5. Build, compile, or run
