@@ -89,3 +89,21 @@ Below are some VSC advantages
 3. Built-in Git: Review diffs, stage files, and make commits right from the editor.
 4. Extensible and customizable: Install extensions to add new languages, themes, debuggers, and to connect to additional services.
 
+#### VSC Example: automatically using black
+
+> Configure VSC to use Black
+
+Open Settings: Code (or File) > Preferences > Settings
+
+- Search for `python formatting provider` and choose `black`
+- Search for `format on save` and check the box to enable
+
+> Select interpreter
+
+Open `Command Palette`: View > `Command Palette..` (or `Ctrl+Shift+P`)
+
+- Search for `Python: Select Interpreter`
+- Choose the correct environment
+
+Now the Black package is going to fix your codes layout every time you save a
+code file.
