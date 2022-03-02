@@ -15,6 +15,7 @@ parts:
     - file: part1/structure
     - file: part1/data
     - file: part1/package-managers
+    - file: part1/tips
     - file: part1/environment
     - file: part1/vsc
 
