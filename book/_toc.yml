@@ -4,7 +4,7 @@
 format: jb-book
 root: intro
 parts:
-- caption: Learning to develop software tools
+- caption: Software development in a nutshell
   chapters:
   - file: part1/overview
     sections:
