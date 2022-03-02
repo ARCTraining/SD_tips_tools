@@ -8,16 +8,12 @@ parts:
   chapters:
   - file: part1/overview
     sections:
-    - file: part1/project
     - file: part1/project-lifecycles
     - file: part1/agile
     - file: part1/tasks
     - file: part1/structure
-    - file: part1/data
     - file: part1/package-managers
     - file: part1/tips
-    - file: part1/environment
-    - file: part1/vsc
 
 - caption: Getting to grips with version control
   chapters:
