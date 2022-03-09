@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Local version control: Adds and Commits" href="vc-local.html" />
+    <link rel="next" title="Tracking Changes" href="tracking.html" />
     <link rel="prev" title="What is Version Control and why do I need it?" href="vc.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -159,11 +159,6 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="vc-environment.html">
-     Integrating VC into my development environment
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="vc.html">
      What is Version Control and why do I need it?
     </a>
@@ -174,13 +169,28 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="vc-local.html">
-     Local version control: Adds and Commits
+    <a class="reference internal" href="tracking.html">
+     Tracking Changes
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="mistakes.html">
-     Making mistakes and recovering from them
+    <a class="reference internal" href="history.html">
+     Exploring History
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ignore.html">
+     Ignoring Things
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="branches.html">
+     Branching
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="glossary.html">
+     Git glossary
     </a>
    </li>
   </ul>
@@ -394,6 +404,61 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-git-available">
+   Is Git available?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-configurations">
+   Basic configurations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#user-info">
+     User info
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#colours">
+     Colours
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-editor">
+     Text editor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-git-branch-naming">
+     Default Git branch naming
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#check-your-configurations">
+   Check your configurations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#need-help">
+   Need help?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-references">
+   Additional references
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -406,6 +471,61 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-git-available">
+   Is Git available?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-configurations">
+   Basic configurations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#user-info">
+     User info
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#colours">
+     Colours
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-editor">
+     Text editor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-git-branch-naming">
+     Default Git branch naming
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#check-your-configurations">
+   Check your configurations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#need-help">
+   Need help?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-references">
+   Additional references
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -414,6 +534,167 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="setting-up-git">
 <h1>Setting up Git<a class="headerlink" href="#setting-up-git" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="is-git-available">
+<h2>Is Git available?<a class="headerlink" href="#is-git-available" title="Permalink to this headline">¶</a></h2>
+<p>Check if <code class="docutils literal notranslate"><span class="pre">git</span></code> is available on your machine by running</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git --version
+</pre></div>
+</div>
+<p>If git is not available you can follow instructions <a class="reference internal" href="requirements1.html"><span class="doc std std-doc">here</span></a>
+to install git in your machine.</p>
+</div>
+<div class="section" id="basic-configurations">
+<h2>Basic configurations<a class="headerlink" href="#basic-configurations" title="Permalink to this headline">¶</a></h2>
+<p>When we use Git on a new computer for the first time,
+we need to configure a few things. Below are a few examples
+of configurations we will set as we get started with Git:</p>
+<ul class="simple">
+<li><p>our name and email address,</p></li>
+<li><p>to colorize our output,</p></li>
+<li><p>what our preferred text editor is,</p></li>
+<li><p>and that we want to use these settings globally (i.e. for every project)</p></li>
+</ul>
+<div class="section" id="user-info">
+<h3>User info<a class="headerlink" href="#user-info" title="Permalink to this headline">¶</a></h3>
+<p>On a command line, Git commands are written as <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">verb</span></code>,
+where <code class="docutils literal notranslate"><span class="pre">verb</span></code> is what we actually want to do. So here is how
+Jane sets up her new laptop:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;Jane Smith&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global user.email <span class="s2">&quot;jane.smith@university.ac.uk&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need to do this only once if you pass the <code class="docutils literal notranslate"><span class="pre">--global</span></code> option. If you want to override this with a different name or email address for specific projects, you can run the command without the <code class="docutils literal notranslate"><span class="pre">--global</span></code> option when you’re in that project.</p>
+</div>
+<p>Please use your <strong>own name and email address</strong> instead of Jane’s. Later on in this workshop, we’ll be setting up an account on <strong>Github</strong> so make sure you use the <strong>same email</strong> address. We recommend that you use your institutional email address.</p>
+<p>You can check that they have been set correctly by running</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config user.name
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config user.email
+</pre></div>
+</div>
+</div>
+<div class="section" id="colours">
+<h3>Colours<a class="headerlink" href="#colours" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global color.ui <span class="s2">&quot;auto&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="text-editor">
+<h3>Text editor<a class="headerlink" href="#text-editor" title="Permalink to this headline">¶</a></h3>
+<p>Jane also has to set her favourite text editor, following this table:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Editor</p></th>
+<th class="text-align:left head"><p>Configuration command</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Atom</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;atom</span> <span class="pre">--wait&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>nano</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;nano</span> <span class="pre">-w&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>BBEdit (Mac, with command line tools)</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;edit</span> <span class="pre">-w&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Sublime Text (Mac)</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;subl</span> <span class="pre">-n</span> <span class="pre">-w&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Sublime Text (Win, 32-bit install)</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;'c:/program</span> <span class="pre">files</span> <span class="pre">(x86)/sublime</span> <span class="pre">text</span> <span class="pre">3/sublime_text.exe'</span> <span class="pre">-w&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Sublime Text (Win, 64-bit install)</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;'c:/program</span> <span class="pre">files/sublime</span> <span class="pre">text</span> <span class="pre">3/sublime_text.exe'</span> <span class="pre">-w&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Notepad++ (Win, 32-bit install)</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;'c:/program</span> <span class="pre">files</span> <span class="pre">(x86)/Notepad++/notepad++.exe'</span> <span class="pre">-multiInst</span> <span class="pre">-notabbar</span> <span class="pre">-nosession</span> <span class="pre">-noPlugin&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Notepad++ (Win, 64-bit install)</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;'c:/program</span> <span class="pre">files/Notepad++/notepad++.exe'</span> <span class="pre">-multiInst</span> <span class="pre">-notabbar</span> <span class="pre">-nosession</span> <span class="pre">-noPlugin&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Kate (Linux)</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;kate&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Gedit (Linux)</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;gedit</span> <span class="pre">--wait</span> <span class="pre">--new-window&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Scratch (Linux)</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;scratch-text-editor&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>emacs</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;emacs&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>vim</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;vim&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>VS Code</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;code</span> <span class="pre">--wait&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>It is possible to reconfigure the text editor for Git whenever you want to change it.</p>
+</div>
+<div class="section" id="default-git-branch-naming">
+<h3>Default Git branch naming<a class="headerlink" href="#default-git-branch-naming" title="Permalink to this headline">¶</a></h3>
+<p>Source file changes are associated with a <code class="docutils literal notranslate"><span class="pre">branch</span></code>. For new learners in this
+lesson, it’s enough to know that branches exist, and this lesson uses one
+branch.</p>
+<p>By default, Git will create a branch called <code class="docutils literal notranslate"><span class="pre">master</span></code> when you create a new
+repository with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> (as explained in the next Episode). This term evokes
+the racist practice of human slavery and the
+<a class="reference external" href="https://github.com/github/renaming">software development community</a>
+has moved to adopt more inclusive language.</p>
+<p>In 2020, most Git code hosting services transitioned to using <code class="docutils literal notranslate"><span class="pre">main</span></code> as the
+default branch. As an example, any new repository that is opened in GitHub and
+GitLab default to <code class="docutils literal notranslate"><span class="pre">main</span></code>. However, Git has not yet made the same change. As a
+result, local repositories must be manually configured have the same main
+branch name as most cloud services.</p>
+<p>To set <code class="docutils literal notranslate"><span class="pre">main</span></code> as your local default branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global init.defaultBranch main
+</pre></div>
+</div>
+<p>Note that if this value is unset in your local Git configuration, the
+<code class="docutils literal notranslate"><span class="pre">init.defaultBranch</span></code> value defaults to <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+</div>
+</div>
+<div class="section" id="check-your-configurations">
+<h2>Check your configurations<a class="headerlink" href="#check-your-configurations" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --list
+</pre></div>
+</div>
+</div>
+<div class="section" id="need-help">
+<h2>Need help?<a class="headerlink" href="#need-help" title="Permalink to this headline">¶</a></h2>
+<p>Always remember that if you forget the subcommands or options of a git command,
+you can access the relevant list of options typing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">&lt;command&gt;</span> <span class="pre">-h</span></code>, e.g.:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config -h
+</pre></div>
+</div>
+<p>or access the corresponding Git manual by typing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">&lt;command&gt;</span> <span class="pre">--help</span></code>, e.g.:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --help
+</pre></div>
+</div>
+<p>More generally, you can get the list of available git commands and further
+resources of the Git manual typing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git <span class="nb">help</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-references">
+<h2>Additional references<a class="headerlink" href="#additional-references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">More options to setting up git</a>.</p></li>
+<li><p>Check if your Git version is updated: <a class="reference external" href="https://en.wikipedia.org/wiki/Git#Releases">Releases</a></p></li>
+<li><p>More about setting up Git on MacOS and Windows: <a class="reference external" href="https://www.codecademy.com/article/git-setup">Git Setup</a> and <a class="reference external" href="https://www.codecademy.com/article/command-line-setup">Git bash setup</a></p></li>
+<li><p><a class="reference external" href="https://help.github.com/articles/dealing-with-line-endings/">About line ending issues</a>.</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -448,10 +729,10 @@ const thebe_selector_output = ".output, .cell_output"
             <p class="prev-next-title">What is Version Control and why do I need it?</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="vc-local.html" title="next page">
+    <a class='right-next' id="next-link" href="tracking.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Local version control: Adds and Commits</p>
+        <p class="prev-next-title">Tracking Changes</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

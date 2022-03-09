@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Integrating VC into my development environment &#8212; Software development - good practices and tips</title>
+    <title>Branching &#8212; Software development - good practices and tips</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,12 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://github.com/ARCTraining/cdt_fluids_2022/part2/vc-environment.html" />
+    <link rel="canonical" href="https://github.com/ARCTraining/cdt_fluids_2022/part2/branches.html" />
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="What is Version Control and why do I need it?" href="vc.html" />
-    <link rel="prev" title="Part 2.1" href="overview1.html" />
+    <link rel="next" title="Git glossary" href="glossary.html" />
+    <link rel="prev" title="Ignoring Things" href="ignore.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -158,11 +158,6 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Integrating VC into my development environment
-    </a>
-   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="vc.html">
      What is Version Control and why do I need it?
@@ -174,13 +169,28 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="vc-local.html">
-     Local version control: Adds and Commits
+    <a class="reference internal" href="tracking.html">
+     Tracking Changes
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="mistakes.html">
-     Making mistakes and recovering from them
+    <a class="reference internal" href="history.html">
+     Exploring History
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ignore.html">
+     Ignoring Things
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Branching
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="glossary.html">
+     Git glossary
     </a>
    </li>
   </ul>
@@ -351,7 +361,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part2/vc-environment.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/part2/branches.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -371,10 +381,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ARCTraining/cdt_fluids_2022/issues/new?title=Issue%20on%20page%20%2Fpart2/vc-environment.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ARCTraining/cdt_fluids_2022/issues/new?title=Issue%20on%20page%20%2Fpart2/branches.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/ARCTraining/cdt_fluids_2022/edit/gh-pages/part2/vc-environment.md"><button
+        <a class="edit-button" href="https://github.com/ARCTraining/cdt_fluids_2022/edit/gh-pages/part2/branches.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -394,6 +404,63 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-new-branches">
+   Creating new branches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-different-branches">
+   Changes in different branches
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-in-experimental-branch">
+     Changes in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       experimental
+      </span>
+     </code>
+     branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-in-main-branch">
+     Changes in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       main
+      </span>
+     </code>
+     branch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merging-branches">
+   Merging branches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conflict">
+   Conflict
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-unnecessary-branches">
+   Remove unnecessary branches
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -401,20 +468,238 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Integrating VC into my development environment</h1>
+                <h1>Branching</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-new-branches">
+   Creating new branches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-different-branches">
+   Changes in different branches
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-in-experimental-branch">
+     Changes in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       experimental
+      </span>
+     </code>
+     branch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-in-main-branch">
+     Changes in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       main
+      </span>
+     </code>
+     branch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merging-branches">
+   Merging branches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conflict">
+   Conflict
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-unnecessary-branches">
+   Remove unnecessary branches
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="integrating-vc-into-my-development-environment">
-<h1>Integrating VC into my development environment<a class="headerlink" href="#integrating-vc-into-my-development-environment" title="Permalink to this headline">¶</a></h1>
-<p>(use VS Code as an example)</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="branching">
+<h1>Branching<a class="headerlink" href="#branching" title="Permalink to this headline">¶</a></h1>
+<p>Branching is a version control concept that means you can create separate lines
+of development derived from your main line.
+This allows you to make changes to the code, adding functionality or making
+improvements without messing up your original main code.
+When working in a team this means you can separate each team members development
+work allowing them to work on their problem in isolation.</p>
+<p>Changes in one branch can be brought into another (such as back into the main
+branch) through merging but by separating work between branches this merge step
+becomes a specific end point that we work too at which conflicts are resolved
+rather than continuously managing conflicts when everyone works on the same
+branch.</p>
+<p>To see what branches are available in your local repository you can
+type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch 
+</pre></div>
+</div>
+<p>The output should looks like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* main
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> branch is created when the repository is initialised.</p>
+<div class="section" id="creating-new-branches">
+<h2>Creating new branches<a class="headerlink" href="#creating-new-branches" title="Permalink to this headline">¶</a></h2>
+<p>You can create
+new branches by using the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> command followed by the name of the
+branch you want to create. Let’s create a new <code class="docutils literal notranslate"><span class="pre">experimental</span></code> branch.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch experimental
+</pre></div>
+</div>
+<p>By checking again the available brances:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  experimental
+* main
+</pre></div>
+</div>
+<p>The asterisk symbol indicates which branch we are currently on (or in git-speak
+which branch we have checked out).</p>
+<p>We can switch to a different branch by using the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch experimental
+</pre></div>
+</div>
+</div>
+<div class="section" id="changes-in-different-branches">
+<h2>Changes in different branches<a class="headerlink" href="#changes-in-different-branches" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="changes-in-experimental-branch">
+<h3>Changes in <code class="docutils literal notranslate"><span class="pre">experimental</span></code> branch<a class="headerlink" href="#changes-in-experimental-branch" title="Permalink to this headline">¶</a></h3>
+<p>Lets make some changes in our branches and and see what happens.</p>
+<p>First, you can create an <code class="docutils literal notranslate"><span class="pre">experimentalfile.txt</span></code> in your <code class="docutils literal notranslate"><span class="pre">experimental</span></code> branch.
+Then add some text in this file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Our experiment is performed as follows:
+
+1. ....
+2. ....
+3. ....
+</pre></div>
+</div>
+<p>Now add and commit this change.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add experimentalfile.txt
+git commit -m <span class="s2">&quot;crating experiment description file&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="changes-in-main-branch">
+<h3>Changes in <code class="docutils literal notranslate"><span class="pre">main</span></code> branch<a class="headerlink" href="#changes-in-main-branch" title="Permalink to this headline">¶</a></h3>
+<p>First go back to the main branch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout main
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that your <code class="docutils literal notranslate"><span class="pre">experimentalfile.txt</span></code> file disappeared.
+Don’t worry, the file wasn’t deleted, it’s just on a different branch.</p>
+</div>
+<p>Now lets create a new <code class="docutils literal notranslate"><span class="pre">mainfile.txt</span></code> and add some text on it.</p>
+<p>Now navigate around your folders and files, change branches and do the same.
+What did you notice?</p>
+<p>Although the <code class="docutils literal notranslate"><span class="pre">mainfile.txt</span></code> file was created on the main branch it also appears
+on the experimental branch. This is because changes are only linked to some
+branch after the git commit step. So lets fix this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout main
+git add mainfile.txt
+git commit -m <span class="s2">&quot;creating the mainfile&quot;</span>
+</pre></div>
+</div>
+<p>Now navigate again around your folders and files and branches.</p>
+</div>
+</div>
+<div class="section" id="merging-branches">
+<h2>Merging branches<a class="headerlink" href="#merging-branches" title="Permalink to this headline">¶</a></h2>
+<p>If you are satisfied with your work on the auxiliary branch (here the
+<code class="docutils literal notranslate"><span class="pre">experimental</span></code>), you can add the changes from that branch to main.
+To do this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout main
+git merge experimental
+</pre></div>
+</div>
+<p>and the output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Merge made by the &#39;recursive&#39; strategy.
+ experimentalfile.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 experimentalfile.txt
+</pre></div>
+</div>
+<p>Again, navigate around your folders, files and branches.
+Make sure you can understand what happened.</p>
+</div>
+<div class="section" id="conflict">
+<h2>Conflict<a class="headerlink" href="#conflict" title="Permalink to this headline">¶</a></h2>
+<p>In the previous example the changes performed on the <code class="docutils literal notranslate"><span class="pre">experimental</span></code> branch and the
+<code class="docutils literal notranslate"><span class="pre">main</span></code> branch was unrelated and when joining the two branches we had no problem.</p>
+<p>Now we’re going to purposefully provoke a conflict. For this open the file in
+the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch and delete the entire last sentence.
+Don’t forget to commit the change.</p>
+<p>Now switch to the <code class="docutils literal notranslate"><span class="pre">experimental</span></code> branch, open the file and instead of deleting
+the sentence, just make a small change to it.
+Again be sure to commit the changes</p>
+<p>Now let’s combine the changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout main
+git merge experimental
+</pre></div>
+</div>
+<p>The output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Auto-merging project.txt
+CONFLICT (content): Merge conflict in project.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</pre></div>
+</div>
+<p>This process generated a conflict because you tried to change a phrase that
+no longer exists. Don’t worry, this is quite common.</p>
+<p>Open your project file and see how it is</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Some initial data analysis to identify how inflammation changes over time after surgery.
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+=======
+Jane is a Data Scientist and Samit is a statistician. We will need to determine
+who is responsible for what in this project.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; experimental
+</pre></div>
+</div>
+<p>The conflict (second sentence) is placed between <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="pre">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span></code>. Now you just
+need to fix the text, <strong>save</strong> and <strong>commit</strong> the change. The final version can be
+the <code class="docutils literal notranslate"><span class="pre">main</span></code> version, the <code class="docutils literal notranslate"><span class="pre">experimental</span></code> version, or something between them. It is
+entirely <strong>up to you</strong>.</p>
+<p>My file after fix the conflict is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Some initial data analysis to identify how inflammation changes over time after surgery.
+Jane is a Data Scientist and Samit is a statistician.
+</pre></div>
+</div>
+<p>This type of situation is more common when different people use different branches.</p>
+</div>
+<div class="section" id="remove-unnecessary-branches">
+<h2>Remove unnecessary branches<a class="headerlink" href="#remove-unnecessary-branches" title="Permalink to this headline">¶</a></h2>
+<p>It is recommended to delete any secondary branches after merging them with main.
+Even if you want to make changes to a secondary branch in the future.
+In that case, create a new branch at the time you decide to work on it.
+This avoids using outdated branches, consequently avoiding unnecessary conflicts.</p>
+<p>To delete the <code class="docutils literal notranslate"><span class="pre">experimental</span></code> branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch -D experimental
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Deleted branch experimental (was 3099b91).
+</pre></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -442,17 +727,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="overview1.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="ignore.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Part 2.1</p>
+            <p class="prev-next-title">Ignoring Things</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="vc.html" title="next page">
+    <a class='right-next' id="next-link" href="glossary.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">What is Version Control and why do I need it?</p>
+        <p class="prev-next-title">Git glossary</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

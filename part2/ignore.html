@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Making mistakes and recovering from them &#8212; Software development - good practices and tips</title>
+    <title>Ignoring Things &#8212; Software development - good practices and tips</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,12 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://github.com/ARCTraining/cdt_fluids_2022/part2/mistakes.html" />
+    <link rel="canonical" href="https://github.com/ARCTraining/cdt_fluids_2022/part2/ignore.html" />
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Part 2.2" href="overview2.html" />
-    <link rel="prev" title="Local version control: Adds and Commits" href="vc-local.html" />
+    <link rel="next" title="Branching" href="branches.html" />
+    <link rel="prev" title="Exploring History" href="history.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -159,11 +159,6 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="vc-environment.html">
-     Integrating VC into my development environment
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="vc.html">
      What is Version Control and why do I need it?
     </a>
@@ -174,13 +169,28 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="vc-local.html">
-     Local version control: Adds and Commits
+    <a class="reference internal" href="tracking.html">
+     Tracking Changes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="history.html">
+     Exploring History
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Making mistakes and recovering from them
+     Ignoring Things
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="branches.html">
+     Branching
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="glossary.html">
+     Git glossary
     </a>
    </li>
   </ul>
@@ -351,7 +361,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part2/mistakes.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/part2/ignore.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -371,10 +381,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ARCTraining/cdt_fluids_2022/issues/new?title=Issue%20on%20page%20%2Fpart2/mistakes.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ARCTraining/cdt_fluids_2022/issues/new?title=Issue%20on%20page%20%2Fpart2/ignore.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/ARCTraining/cdt_fluids_2022/edit/gh-pages/part2/mistakes.md"><button
+        <a class="edit-button" href="https://github.com/ARCTraining/cdt_fluids_2022/edit/gh-pages/part2/ignore.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -401,7 +411,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Making mistakes and recovering from them</h1>
+                <h1>Ignoring Things</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -412,8 +422,70 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="making-mistakes-and-recovering-from-them">
-<h1>Making mistakes and recovering from them<a class="headerlink" href="#making-mistakes-and-recovering-from-them" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="ignoring-things">
+<h1>Ignoring Things<a class="headerlink" href="#ignoring-things" title="Permalink to this headline">¶</a></h1>
+<p>What if we have files that we do not want Git to track for us,
+like backup files created by our editor
+or intermediate files created during data analysis?
+Let’s create a few dummy files in the <code class="docutils literal notranslate"><span class="pre">inflammation</span></code> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir results
+touch a.dat b.dat c.dat results/a.out results/b.out
+</pre></div>
+</div>
+<p>and see what Git says:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git status
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>On branch main
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+ a.dat
+ b.dat
+ c.dat
+ results/
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</pre></div>
+</div>
+<p>Putting these files under version control would be a waste of disk space.
+What’s worse,
+having them all listed could distract us from changes that actually matter,
+so let’s tell Git to ignore them.</p>
+<p>We do this by creating a file in the root directory of our project
+called <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>. Inside <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>*.dat
+results/
+</pre></div>
+</div>
+<p>These patterns tell Git to ignore any file whose name ends in <code class="docutils literal notranslate"><span class="pre">.dat</span></code>
+and everything in the <code class="docutils literal notranslate"><span class="pre">results</span></code> directory.
+(If any of these files were already being tracked,
+Git would continue to track them.)</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Check the status!<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git status
+On branch main
+Untracked files:
+  <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="k">in</span> what will be committed<span class="o">)</span>
+
+ .gitignore
+nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</details><p>You might think we wouldn’t want to track it,
+but everyone we’re sharing our repository with will probably want to ignore
+the same things that we’re ignoring.
+Let’s add and commit <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add .gitignore
+git commit -m <span class="s2">&quot;Add the ignore file&quot;</span>
+</pre></div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -441,17 +513,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="vc-local.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="history.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Local version control: Adds and Commits</p>
+            <p class="prev-next-title">Exploring History</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="overview2.html" title="next page">
+    <a class='right-next' id="next-link" href="branches.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Part 2.2</p>
+        <p class="prev-next-title">Branching</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
