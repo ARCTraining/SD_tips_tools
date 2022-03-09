@@ -19,11 +19,14 @@ parts:
   chapters:
   - file: part2/overview1
     sections:
-    - file: part2/vc-environment
     - file: part2/vc
     - file: part2/git
-    - file: part2/vc-local
-    - file: part2/mistakes
+    - file: part2/creating-local-repo
+    - file: part2/tracking
+    - file: part2/history
+    - file: part2/ignore
+    - file: part2/branches
+    - file: part2/glossary
 
   - file: part2/overview2
     sections:
