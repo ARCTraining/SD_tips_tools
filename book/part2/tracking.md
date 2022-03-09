@@ -208,12 +208,12 @@ Git has a special *staging area*
 where it keeps track of things that have been added to
 the current `changeset` but not yet committed.
 
-![The Git Staging Area](../assets/img/Part2/git-staging-area.png)
+![The Git Staging Area](../assets/img/part2/git-staging-area.png)
 
 By using the staging area you can populate your Git repository with multiple
 files/changes at once.
 
-![The Git Commit Workflow](../assets/img/Part2/git-committing.png)
+![The Git Commit Workflow](../assets/img/part2/git-committing.png)
 
 ## Additional tips
 
