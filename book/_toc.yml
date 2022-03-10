@@ -21,7 +21,7 @@ parts:
     sections:
     - file: part2/vc
     - file: part2/git
-    - file: part2/creating-local-repo
+    - file: part2/local-repo
     - file: part2/tracking
     - file: part2/history
     - file: part2/ignore
