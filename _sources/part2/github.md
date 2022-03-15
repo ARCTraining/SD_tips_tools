@@ -4,7 +4,7 @@
 All instructions and images showed bellow are provided by GitHub [here](https://docs.github.com/en/get-started/quickstart/create-a-repo).
 ```
 
-## Creating a GitHub
+## Creating a GitHub Repository
 
 - In the upper-right corner of any page, use the  drop-down menu, and select New repository.
 
