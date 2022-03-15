@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synchronizing: Visual Studio Code way &#8212; Software development - good practices and tips</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://github.com/ARCTraining/cdt_fluids_2022/part2/synchronizing-vsc.html" />
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GitHub issues" href="issues.html" />
+    <link rel="prev" title="Synchronizing: Local &amp; GitHub" href="synchronizing.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Software development - good practices and tips</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Software development in a nutshell
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part1/overview.html">
+   Part 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/project-lifecycles.html">
+     Software Development Life Cycle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/agile.html">
+     Project management methodologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/tasks.html">
+     Tasks &amp; Kanban
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/structure.html">
+     Laying out a coding project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/package-managers.html">
+     Package managers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/tips.html">
+     Additional tips
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting to grips with version control
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="overview1.html">
+   Part 2.1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="vc.html">
+     What is Version Control and why do I need it?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="git.html">
+     Setting up Git
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="local-repo.html">
+     Creating a local repository
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tracking.html">
+     Tracking Changes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="history.html">
+     Exploring History
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ignore.html">
+     Ignoring Things
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="branches.html">
+     Branching
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="glossary.html">
+     Git glossary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="overview2.html">
+   Part 2.2
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="git-vsc.html">
+     Git &amp; GitHub &amp; Visual Studio Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="github.html">
+     Github repository
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="synchronizing.html">
+     Synchronizing: Local &amp; GitHub
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Synchronizing: Visual Studio Code way
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="issues.html">
+     GitHub issues
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting better at Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part3/overview1.html">
+   Part 3.1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/testing.html">
+     Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/assertions.html">
+     Assertions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/exceptions.html">
+     Exceptions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/unit-tests.html">
+     Unit tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/pytest.html">
+     Running tests with Pytest
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/edge-corner.html">
+     Edge and Corner cases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/integration-regression.html">
+     Integration and Regression testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/continuous-integration.html">
+     Continuous Integration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part3/overview2.html">
+   Part 3.2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/tdd.html">
+     Test-driven development
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/fixtures.html">
+     Fixtures (tools to consistently test a piece of software)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part3/overview3.html">
+   Part 3.3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part3/study-case.html">
+     Case of study
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Visit the <a href="https://arcleeds.github.io/">Research Computing Home Site</a> <div> This book is powered by <a href="https://jupyterbook.org">Jupyter Book</a> </div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/part2/synchronizing-vsc.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ARCTraining/cdt_fluids_2022"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ARCTraining/cdt_fluids_2022/issues/new?title=Issue%20on%20page%20%2Fpart2/synchronizing-vsc.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/ARCTraining/cdt_fluids_2022/edit/gh-pages/part2/synchronizing-vsc.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-github">
+   Local –&gt; GitHub
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-github-even-simpler">
+   Local –&gt; GitHub: even simpler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-local">
+   GitHub –&gt; Local
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-and-commit-using-vsc">
+   Add and commit using VSC
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#push-local-changes-to-a-remote-repo-using-a-different-branch">
+   Push local changes to a remote repo using a different branch
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-pull-request">
+   Compare &amp; pull request
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-standard-collaborative-workflow">
+   A standard collaborative workflow
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Synchronizing: Visual Studio Code way</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-github">
+   Local –&gt; GitHub
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-github-even-simpler">
+   Local –&gt; GitHub: even simpler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-local">
+   GitHub –&gt; Local
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-and-commit-using-vsc">
+   Add and commit using VSC
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#push-local-changes-to-a-remote-repo-using-a-different-branch">
+   Push local changes to a remote repo using a different branch
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-pull-request">
+   Compare &amp; pull request
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-standard-collaborative-workflow">
+   A standard collaborative workflow
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="synchronizing-visual-studio-code-way">
+<h1>Synchronizing: Visual Studio Code way<a class="headerlink" href="#synchronizing-visual-studio-code-way" title="Permalink to this headline">¶</a></h1>
+<p>In this section we are going to repeat the steps of create and synchronizing
+local/GitHub repositories, but now we are going to use the Visual Studio Code
+instead of the terminal.</p>
+<div class="section" id="local-github">
+<h2>Local –&gt; GitHub<a class="headerlink" href="#local-github" title="Permalink to this headline">¶</a></h2>
+<p>First open your local git repository. On the lef bar choose the <code class="docutils literal notranslate"><span class="pre">Explorer</span></code> icon,
+and then click on the <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Folder</span></code> button:</p>
+<p><img alt="VSC: open folder" src="../_images/vsc1.png" /></p>
+<p>The second step is open the <code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Control</span></code> tab (also on the left bar).
+This tab offer several Version Control features. For instance we are interested
+in create a remote (link) with GitHub. So, go to the <code class="docutils literal notranslate"><span class="pre">Remotes</span></code> and click on <code class="docutils literal notranslate"><span class="pre">+</span></code>
+(add remote):</p>
+<p><img alt="VSC: setup remote" src="../_images/vsc2.png" /></p>
+<p>A new tab on the top center will popup asking for the remote name. We strongly
+recommend the <code class="docutils literal notranslate"><span class="pre">origin</span></code> name. Type the name and press enter.</p>
+<p><img alt="VSC: remote name" src="../_images/vsc3.png" /></p>
+<p>After that, a very similar tab will popup. Now you should add the github link.
+To get this link you need first to create an empty repository on GitHub.</p>
+<p><img alt="VSC: remote link" src="../_images/vsc4.png" /></p>
+<p>Now you should push your changes.</p>
+<p><img alt="VSC: push changes" src="../_images/vsc5.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Following the above steps you did the same git bash steps, but in a
+graphic interface.</p>
+</div>
+</div>
+<div class="section" id="local-github-even-simpler">
+<h2>Local –&gt; GitHub: even simpler<a class="headerlink" href="#local-github-even-simpler" title="Permalink to this headline">¶</a></h2>
+<p>Let’s starting again open a local git repository.
+On the lef bar choose the <code class="docutils literal notranslate"><span class="pre">Explorer</span></code> icon,
+and then click on the <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Folder</span></code> button:</p>
+<p><img alt="VSC: open folder" src="../_images/vsc1.png" /></p>
+<p>Now, look for a cloud symbol in the bottom bar.
+Don’t worry if you don’t see all the symbols in the image below,
+they depend on the installed extensions.</p>
+<p><img alt="VSC: cloud button" src="../_images/vsc6.png" /></p>
+<p>A new bar should popup on the top.
+VSC will automatically suggest that the local repository be published on GitHub.
+The same name is suggested, but you can change it if you wish. You can also
+choose between a public or private repository. Click in your desired option and
+wait.</p>
+<p><img alt="VSC: publishing a new repo" src="../_images/vsc7.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you chose a name that already exist in your GitHub an error will popup.
+You always need an empty GitHub repo to setup a remote.
+If this occurs, just try again with a different repo name.</p>
+</div>
+<p>A couple of box may appear. One saying that the repository was
+successfully published, and other suggesting to crate a pull request.
+Just close them. For now, everything is done!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>you didn’t need to create an empty repository on github, nor perform a push of
+your files, VSC did it automatically for you.</p>
+</div>
+</div>
+<div class="section" id="github-local">
+<h2>GitHub –&gt; Local<a class="headerlink" href="#github-local" title="Permalink to this headline">¶</a></h2>
+<p>Here the procedure is very similar to <code class="docutils literal notranslate"><span class="pre">bash</span></code>, but in a graphical interface.</p>
+<p>Go again to the <code class="docutils literal notranslate"><span class="pre">Explorer</span></code> icon on left bar,
+and then click on the <code class="docutils literal notranslate"><span class="pre">Clone</span> <span class="pre">Repository</span></code> button:</p>
+<p><img alt="VSC: clone repo" src="../_images/vsc8.png" /></p>
+<p>A new box will popup. Select the GitHub option, and some repository options are
+going to be listed. You can search and select the desired repo to clone.</p>
+<p><img alt="VSC: github search" src="../_images/vsc9.png" /></p>
+<p>Then, select the place to store your repo.</p>
+</div>
+<div class="section" id="add-and-commit-using-vsc">
+<h2>Add and commit using VSC<a class="headerlink" href="#add-and-commit-using-vsc" title="Permalink to this headline">¶</a></h2>
+<p>After working for a while without add or commit your changes, you will notice a
+series of tags next to your files in Visual Studio Code.
+See this horrible example:</p>
+<p><img alt="VSC: tracking changes" src="../_images/vsc10.png" /></p>
+<p>The tags are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">U</span></code>: Untracked - files that never were tracked by git (never were added to staging area)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">M</span></code>: Modified - files that were modified since last commit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numbers</span></code>: Number of problems in the file (like spellcheck problems)</p></li>
+</ul>
+<p>Another thing you can notice in this image is that the “Source Control” icon
+indicates the amount of changes that were not included in git
+(49 in this example).</p>
+<p>Move to this tab and let’s see how VSC helps us organize our work even when we
+are extremely disorganized.</p>
+<p><img alt="VSC: Changes and staging area" src="../_images/vsc11.png" /></p>
+<p>All changed files are displayed here. To view the changes You can select a file.
+The old and the new version are going to be displayed and the differences are
+going to be highlighted. Once you understand what the change is about you can
+add the file to the staging area by clicking the plus button (this is equivalent
+to git add).</p>
+<p>Before moving on to a committee, it’s worth checking to see if any of the other
+changes fit the same topic/subject. Just browse through the files, review the
+changes and add to the staging area whatever you think is relevant for the same
+commit. Before commit, you can review all staged files. If necessary remove than
+from staged area using the <code class="docutils literal notranslate"><span class="pre">-</span></code> button.</p>
+<p><img alt="VSC: Staged files" src="../_images/vsc12.png" /></p>
+<p><strong>Advanced tip:</strong> Sometimes we make several changes within the same file,
+but not all of these changes belong to the same commit. For example,
+when writing a paper you can separate a commit for each session, but all
+sessions are in the same file. Another example is shown in the image below,
+where the table of contents was changed in different sessions and I wanted to
+add only one session to the commit.</p>
+<p><img alt="VSC: adding partial files to staging area" src="../_images/vsc16.png" /></p>
+<p>In VSC you can easily add the desired part in the staging area. For that:</p>
+<ul class="simple">
+<li><p>Select the desired text</p></li>
+<li><p>Right click</p></li>
+<li><p>Choose the “Stage Selected Ranges” option</p></li>
+</ul>
+<p>After group all related changes in the staged are, you are ready to commit.
+Now type a commit message on the above space, and press the check button
+(equivalent to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;message&quot;</span></code> command).</p>
+<p><img alt="VSC: commit" src="../_images/vsc13.png" /></p>
+<p>Now, repeat the process of review changes, add related changes to staging area,
+and committing them, until the <code class="docutils literal notranslate"><span class="pre">Changes</span></code> tab is empty. In this point the <code class="docutils literal notranslate"><span class="pre">sync</span></code>
+button should appear (this is equivalent to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">main</span></code>):</p>
+<p><img alt="VSC: push" src="../_images/vsc14.png" /></p>
+</div>
+<div class="section" id="push-local-changes-to-a-remote-repo-using-a-different-branch">
+<h2>Push local changes to a remote repo using a different branch<a class="headerlink" href="#push-local-changes-to-a-remote-repo-using-a-different-branch" title="Permalink to this headline">¶</a></h2>
+<p>Let’s improve a little bit our GitHub skills. You should not push anything to
+your main branch. The standard approach is to submit your changes in a new branch
+and then make a pull request.</p>
+<p>First things first: create a new branch on VSC:</p>
+<p><img alt="VSC: new branch" src="../_images/vsc15.png" /></p>
+<p>A box to type the branch name will appear. Type something meaningful and press
+enter. After that, in the commit box, you should be able to see the new branch
+name. After check that you are on the right branch, press the <code class="docutils literal notranslate"><span class="pre">Publish</span></code> button.</p>
+<p>You can also use the <code class="docutils literal notranslate"><span class="pre">Branches</span></code> section under the <code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Control</span></code> tab for a
+complete branch management options. In this
+section you can see all available branches, checkout to another branch with one
+click, create a new branch and more.</p>
+<p><img alt="VSC: branches section" src="../_images/vsc17.png" /></p>
+</div>
+<div class="section" id="compare-pull-request">
+<h2>Compare &amp; pull request<a class="headerlink" href="#compare-pull-request" title="Permalink to this headline">¶</a></h2>
+<p>Now is time to combine your “new-branch” with the main branch. You can do this
+inside the VSC, but I suggest to do this directly on GitHub (let’s use the
+better from every world). So, open your GitHub repo and a suggestion for pull
+request should be on the <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span> <span class="pre">code</span></code> tab. Press the <code class="docutils literal notranslate"><span class="pre">Compare</span> <span class="pre">&amp;</span> <span class="pre">pull</span> <span class="pre">request</span></code>
+button.</p>
+<p><img alt="GH: pull request" src="../_images/gh1.png" /></p>
+<p>The first and basic thing is verify if the branches can be merged. GitHub
+is going to flag this for us.</p>
+<p><img alt="GH: merge flag" src="../_images/gh2.png" /></p>
+<p>The next thing is create the message for the pull request. This includes a
+Title and a long description. You can add files, links, mention collaborators,
+etc. Note that the message can be written in markdown, this includes headers,
+lists, and tables.</p>
+<p><img alt="GH: pull request message" src="../_images/gh3.png" /></p>
+<p>Before submit the pull request you can also tweak some configurations (right
+column).</p>
+<p><img alt="GH: reviewers" src="../_images/gh4.png" /></p>
+<p>Two of these options are are really important:</p>
+<ul class="simple">
+<li><p>Reviewers: someone you want to review the changes.</p></li>
+<li><p>Assignees: someone responsible for accept or not the pull request.</p></li>
+</ul>
+</div>
+<div class="section" id="a-standard-collaborative-workflow">
+<h2>A standard collaborative workflow<a class="headerlink" href="#a-standard-collaborative-workflow" title="Permalink to this headline">¶</a></h2>
+<p>In practice, it is good to be sure that you have an updated version of the
+repository you are collaborating on, so you should git pull before making our
+changes. The basic collaborative workflow would be:</p>
+<ul class="simple">
+<li><p>update your local repo,</p></li>
+<li><p>create a new branch,</p></li>
+<li><p>make your changes and stage,</p></li>
+<li><p>commit your changes,</p></li>
+<li><p>upload the changes to a new branch on GitHub, and</p></li>
+<li><p>create a pull request.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./part2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="synchronizing.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Synchronizing: Local &amp; GitHub</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="issues.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">GitHub issues</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By University of Leeds Research Computing Team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

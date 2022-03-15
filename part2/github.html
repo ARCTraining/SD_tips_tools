@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using Github as a backup tool &#8212; Software development - good practices and tips</title>
+    <title>Github repository &#8212; Software development - good practices and tips</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Part 3.1" href="../part3/overview1.html" />
-    <link rel="prev" title="Merging forks back into the master branch (could do two forks for different algorithms and a third fork for documentation)" href="merge.html" />
+    <link rel="next" title="Synchronizing: Local &amp; GitHub" href="synchronizing.html" />
+    <link rel="prev" title="Git &amp; GitHub &amp; Visual Studio Code" href="git-vsc.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -211,18 +211,28 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="forks-branches.html">
-     Taking a different approach (trying out different algorithms): when to use forks and branches
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="merge.html">
-     Merging forks back into the master branch (could do two forks for different algorithms and a third fork for documentation)
+    <a class="reference internal" href="git-vsc.html">
+     Git &amp; GitHub &amp; Visual Studio Code
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Using Github as a backup tool
+     Github repository
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="synchronizing.html">
+     Synchronizing: Local &amp; GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="synchronizing-vsc.html">
+     Synchronizing: Visual Studio Code way
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="issues.html">
+     GitHub issues
     </a>
    </li>
   </ul>
@@ -409,6 +419,24 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-github">
+   Creating a GitHub
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-and-committing-changes">
+   Making and committing changes
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -416,19 +444,110 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Using Github as a backup tool</h1>
+                <h1>Github repository</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-github">
+   Creating a GitHub
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-and-committing-changes">
+   Making and committing changes
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="using-github-as-a-backup-tool">
-<h1>Using Github as a backup tool<a class="headerlink" href="#using-github-as-a-backup-tool" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="github-repository">
+<h1>Github repository<a class="headerlink" href="#github-repository" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All instructions and images showed bellow are provided by GitHub <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/create-a-repo">here</a>.</p>
+</div>
+<div class="section" id="creating-a-github">
+<h2>Creating a GitHub<a class="headerlink" href="#creating-a-github" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In the upper-right corner of any page, use the  drop-down menu, and select New repository.</p></li>
+</ul>
+<p><img alt="New repo dropdown" src="https://docs.github.com/assets/cb-11427/images/help/repository/repo-create.png" /></p>
+<ul class="simple">
+<li><p>Type a short, memorable name for your repository.</p></li>
+</ul>
+<p><img alt="New repo: name" src="https://docs.github.com/assets/cb-25139/images/help/repository/create-repository-name.png" /></p>
+<ul class="simple">
+<li><p>Optionally, add a description of your repository.</p></li>
+</ul>
+<p><img alt="New repo: description" src="https://docs.github.com/assets/cb-26377/images/help/repository/create-repository-desc.png" /></p>
+<ul class="simple">
+<li><p>Choose a repository visibility.</p></li>
+</ul>
+<p><img alt="New repo: visibility" src="https://docs.github.com/assets/cb-20877/images/help/repository/create-repository-public-private.png" /></p>
+<ul class="simple">
+<li><p>Select Initialize this repository with a README. You can also choose start with the licence and the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> files.</p></li>
+</ul>
+<p><img alt="New repo: readme" src="https://docs.github.com/assets/cb-49938/images/help/repository/initialize-with-readme.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should also add a <strong>.gitignore</strong> and a <strong>licence</strong>. Please see
+<a class="reference external" href="https://arctraining.github.io/swd2_git/11-licensing/">here</a> for more
+information related with Licence.</p>
+<p>For research, it is also convenient to create a <strong>citation</strong> file.
+See <a class="reference external" href="https://arctraining.github.io/swd2_git/12-citation/">here</a>
+for more information related with Citation file.</p>
+</div>
+<ul class="simple">
+<li><p>Click Create repository.</p></li>
+</ul>
+<p><img alt="New repo: create button" src="https://docs.github.com/assets/cb-19887/images/help/repository/create-repository-button.png" /></p>
+</div>
+<div class="section" id="making-and-committing-changes">
+<h2>Making and committing changes<a class="headerlink" href="#making-and-committing-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In your repository’s list of files, click <a class="reference external" href="http://README.md">README.md</a>.</p></li>
+</ul>
+<p><img alt="Select File" src="https://docs.github.com/assets/cb-44661/images/help/repository/create-commit-open-readme.png" /></p>
+<ul class="simple">
+<li><p>Above the file’s content, click in the pencil icon.</p></li>
+<li><p>On the Edit file tab, type some text.</p>
+<ul>
+<li><p>You can preview (<code class="docutils literal notranslate"><span class="pre">Preview</span> <span class="pre">changes</span></code> tab) your changes before commit.</p></li>
+<li><p>New content is highlighted in green</p></li>
+<li><p>Removed content is highlighted in red</p></li>
+</ul>
+</li>
+<li><p>At the bottom of the page, type a short, meaningful commit message that describes the change you made to the file.</p></li>
+</ul>
+<p><img alt="Commit" src="https://docs.github.com/assets/cb-9378/images/help/repository/write-commit-message-quick-pull.png" /></p>
+<ul class="simple">
+<li><p>Below the commit message fields, decide whether to add your commit to the current branch or to a new branch.</p></li>
+</ul>
+<p><img alt="Branche" src="https://docs.github.com/assets/cb-32137/images/help/repository/choose-commit-branch.png" /></p>
+<ul class="simple">
+<li><p>Click Propose file change</p></li>
+</ul>
+<p><img alt="Propose file change" src="https://docs.github.com/assets/cb-13681/images/help/repository/propose-file-change-quick-pull.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> command is not necessary here. Github automatically put the
+changed file in the staged area.
+Despite simplifying the workflow for small changes, this procedure makes it impossible to add several changes to the same commit.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -456,17 +575,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="merge.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="git-vsc.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Merging forks back into the master branch (could do two forks for different algorithms and a third fork for documentation)</p>
+            <p class="prev-next-title">Git &amp; GitHub &amp; Visual Studio Code</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../part3/overview1.html" title="next page">
+    <a class='right-next' id="next-link" href="synchronizing.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Part 3.1</p>
+        <p class="prev-next-title">Synchronizing: Local &amp; GitHub</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
