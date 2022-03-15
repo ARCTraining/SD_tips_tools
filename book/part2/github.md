@@ -26,6 +26,16 @@ All instructions and images showed bellow are provided by GitHub [here](https://
 
 ![New repo: readme](https://docs.github.com/assets/cb-49938/images/help/repository/initialize-with-readme.png)
 
+:::{note}
+You should also add a **.gitignore** and a **licence**. Please see 
+[here](https://arctraining.github.io/swd2_git/11-licensing/) for more
+information related with Licence.
+
+For research, it is also convenient to create a **citation** file. 
+See [here](https://arctraining.github.io/swd2_git/12-citation/)
+for more information related with Citation file.
+:::
+
 - Click Create repository.
 
 ![New repo: create button](https://docs.github.com/assets/cb-19887/images/help/repository/create-repository-button.png)
