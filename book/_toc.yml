@@ -30,9 +30,13 @@ parts:
 
   - file: part2/overview2
     sections:
-    - file: part2/forks-branches
-    - file: part2/merge
+    #- file: part2/forks-branches
+    #- file: part2/merge
+    - file: part2/git-vsc
     - file: part2/github
+    - file: part2/synchronizing
+    - file: part2/synchronizing-vsc
+    - file: part2/issues
     
 - caption: Getting better at Python
   chapters:
