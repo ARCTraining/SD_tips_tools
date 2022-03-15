@@ -1,6 +1,6 @@
-# Synchronizing: Visual Studio Code way!
+# Synchronizing: Visual Studio Code way
 
-In this section we are going to repeat the steps of create and syncronizing
+In this section we are going to repeat the steps of create and synchronizing
 local/GitHub repositories, but now we are going to use the Visual Studio Code
 instead of the terminal.
 
@@ -13,7 +13,7 @@ and then click on the `Open Folder` button:
 
 The second step is open the `Source Control` tab (also on the left bar).
 This tab offer several Version Control features. For instance we are interested
-in create a remote (link) with GitHub. So, go to the `Remotes` and click on `+` 
+in create a remote (link) with GitHub. So, go to the `Remotes` and click on `+`
 (add remote):
 
 ![VSC: setup remote](../assets/img/part2/vsc2.png)

@@ -1,6 +1,6 @@
 # Synchronizing: Local & GitHub
 
-To sync a local repository with a GitHub repository you need two repositories 
+To sync a local repository with a GitHub repository you need two repositories
 (one local and one online) and then set up a link between them.
 The two possible paths are:
 
