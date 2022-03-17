@@ -42,18 +42,12 @@ parts:
   chapters:
   - file: part3/overview1
     sections:
-    - file: part3/testing
+    - file: part3/errors
     - file: part3/assertions
-    - file: part3/exceptions
-    - file: part3/unit-tests
-    - file: part3/pytest
-    - file: part3/edge-corner
-    - file: part3/integration-regression
-    - file: part3/continuous-integration
+    - file: part3/tdd
 
   - file: part3/overview2
     sections:
-    - file: part3/tdd
     - file: part3/fixtures
 
   - file: part3/overview3
