@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exceptions" href="exceptions.html" />
-    <link rel="prev" title="Testing" href="testing.html" />
+    <link rel="next" title="Test-driven development" href="tdd.html" />
+    <link rel="prev" title="Python Errors" href="errors.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -255,8 +255,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="testing.html">
-     Testing
+    <a class="reference internal" href="errors.html">
+     Python Errors
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -265,33 +265,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="exceptions.html">
-     Exceptions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="unit-tests.html">
-     Unit tests
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pytest.html">
-     Running tests with Pytest
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="edge-corner.html">
-     Edge and Corner cases
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="integration-regression.html">
-     Integration and Regression testing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="continuous-integration.html">
-     Continuous Integration
+    <a class="reference internal" href="tdd.html">
+     Test-driven development
     </a>
    </li>
   </ul>
@@ -306,11 +281,6 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tdd.html">
-     Test-driven development
-    </a>
-   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="fixtures.html">
      Fixtures (tools to consistently test a piece of software)
@@ -419,6 +389,29 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-rectangle-example">
+   The rectangle example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activity-pre-and-post-conditions">
+   Activity: Pre and post-conditions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activity-testing-assertions">
+   Activity: testing assertions
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -431,6 +424,29 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-rectangle-example">
+   The rectangle example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activity-pre-and-post-conditions">
+   Activity: Pre and post-conditions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activity-testing-assertions">
+   Activity: testing assertions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -439,6 +455,176 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="assertions">
 <h1>Assertions<a class="headerlink" href="#assertions" title="Permalink to this headline">¶</a></h1>
+<p>The first step toward getting the right answers from our programs is to assume
+that mistakes will happen and to guard against them.
+This is called <strong>defensive programming</strong>.</p>
+<p>The most common way to do a defensive programming is
+to add <strong>assertions</strong> to our code so that it checks itself as
+it runs. An assertion is simply a statement that something
+<strong>must be true</strong> at a certain point in a program.</p>
+<p>When Python sees one, it evaluates the assertion’s condition.
+If it’s true, Python does nothing, but if it’s false, Python <strong>halts</strong> the program
+immediately and <strong>prints the error message</strong> if one is provided.</p>
+<p>For example, this piece of code halts as soon as the loop encounters a value that isn’t positive:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">]</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;Data should only contain positive values&#39;</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;total is:&#39;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Broadly speaking, assertions fall into three categories:</p>
+<ul class="simple">
+<li><p>A <strong>precondition</strong> is something that must be true at the start of a function in order for it to work correctly.</p></li>
+<li><p>A <strong>postcondition</strong> is something that the function guarantees is true when it finishes.</p></li>
+<li><p>An <strong>invariant</strong> is something that is always true at a particular point inside a piece of code.</p></li>
+</ul>
+<div class="section" id="the-rectangle-example">
+<h2>The rectangle example<a class="headerlink" href="#the-rectangle-example" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we are representing rectangles using a tuple of <strong>four coordinates</strong> (x0, y0, x1, y1), representing the lower left and upper right corners of the rectangle.</p>
+<p>In order to do some calculations, we need to <strong>normalize the rectangle</strong> so that the lower left corner is at the origin and the longest side is 1.0 units long. This function does that, but checks that its input is correctly formatted and that its result makes sense:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalize_rectangle</span><span class="p">(</span><span class="n">rect</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Normalizes a rectangle so that it is at the origin and 1.0 units long on its longest axis.</span>
+<span class="sd">    Input should be of the format (x0, y0, x1, y1).</span>
+<span class="sd">    (x0, y0) and (x1, y1) define the lower left and upper right corners</span>
+<span class="sd">    of the rectangle, respectively.&quot;&quot;&quot;</span>
+    
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Rectangles must contain 4 coordinates&#39;</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">rect</span>
+    <span class="k">assert</span> <span class="n">x0</span> <span class="o">&lt;</span> <span class="n">x1</span><span class="p">,</span> <span class="s1">&#39;Invalid X coordinates&#39;</span>
+    <span class="k">assert</span> <span class="n">y0</span> <span class="o">&lt;</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;Invalid Y coordinates&#39;</span>
+
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span>
+    
+    <span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;</span> <span class="n">dy</span><span class="p">:</span>
+        <span class="n">scaled</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="o">/</span> <span class="n">dy</span>
+        <span class="n">upper_x</span><span class="p">,</span> <span class="n">upper_y</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">scaled</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">scaled</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="o">/</span> <span class="n">dy</span>
+        <span class="n">upper_x</span><span class="p">,</span> <span class="n">upper_y</span> <span class="o">=</span> <span class="n">scaled</span><span class="p">,</span> <span class="mf">1.0</span>
+
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">upper_x</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Calculated upper X coordinate invalid&#39;</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">upper_y</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Calculated upper Y coordinate invalid&#39;</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">upper_x</span><span class="p">,</span> <span class="n">upper_y</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The preconditions on lines 7, 9, and 10 catch invalid inputs</p></li>
+<li><p>The post-conditions on lines 20 and 21 help us catch bugs by telling us when our calculations might have been incorrect.</p></li>
+</ul>
+<p>Let’s perform some tests.
+Call <code class="docutils literal notranslate"><span class="pre">print(normalize_rectangle(</span> <span class="pre">values</span> <span class="pre">))</span></code> and replace by:</p>
+<ol class="simple">
+<li><p>(0.0, 1.0, 2.0) - missing the fourth coordinate</p></li>
+<li><p>(1.0, 2.0, 4.0, 5.0) - x-axis inverted</p></li>
+<li><p>(0.0, 0.0, 1.0, 5.0) - rectangle that is taller than it is wide</p></li>
+<li><p>(0.0, 0.0, 5.0, 1.0) - rectangle that is wider than it is tall</p></li>
+</ol>
+<p>Now answer:</p>
+<ul class="simple">
+<li><p>Can you understand all outputs?</p></li>
+<li><p>Is the code right? Do we need to fix something?</p></li>
+</ul>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Answers<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<ul class="simple">
+<li><p class="card-text">1 and 2 are warnings for wrong inputs.</p></li>
+<li><p class="card-text">3 is everything right</p></li>
+<li><p class="card-text">4 should work but it is nothing.</p></li>
+</ul>
+<p class="card-text">Fix the code block:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;</span> <span class="n">dy</span><span class="p">:</span>
+        <span class="n">scaled</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="o">/</span> <span class="n">dy</span> <span class="c1"># change for scaled = float(dy) / dx</span>
+        <span class="n">upper_x</span><span class="p">,</span> <span class="n">upper_y</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">scaled</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<div class="section" id="activity-pre-and-post-conditions">
+<h2>Activity: Pre and post-conditions<a class="headerlink" href="#activity-pre-and-post-conditions" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you are writing a function called <code class="docutils literal notranslate"><span class="pre">average</span></code> that calculates the
+average of the numbers in a list, something like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>What <code class="docutils literal notranslate"><span class="pre">pre-conditions</span></code> and <code class="docutils literal notranslate"><span class="pre">post-conditions</span></code> would you write for it?</p></li>
+<li><p>Compare your answer to your neighbors: can you think of a function that will pass your tests but not his/hers or vice versa?</p></li>
+</ol>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Some ideas<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Precondition:</p>
+<ul class="simple">
+<li><p class="card-text">Is it a list?</p></li>
+<li><p class="card-text">List length must have greater than zero values</p></li>
+<li><p class="card-text">No stupid values (invariant)</p></li>
+</ul>
+<p class="card-text">Postcondition:</p>
+<ul class="simple">
+<li><p class="card-text">Average is within the range of the given data</p></li>
+</ul>
+</div>
+</details></div>
+<div class="section" id="activity-testing-assertions">
+<h2>Activity: testing assertions<a class="headerlink" href="#activity-testing-assertions" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_total_cars</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">int</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">total</span>
+</pre></div>
+</div>
+<p>Given a sequence of a number of cars, the function <code class="docutils literal notranslate"><span class="pre">get_total_cars</span></code> returns the
+total number of cars. So, <code class="docutils literal notranslate"><span class="pre">get_total_cars([1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4])</span></code> should return <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+<ul class="simple">
+<li><p>Explain in words what the assertions in this function check, and for each one,
+give an example of input that will make that assertion fail.</p></li>
+</ul>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Answers<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<ul class="simple">
+<li><p class="card-text">The first assertion checks that the input sequence values is not empty.</p>
+<ul>
+<li><p class="card-text">An empty sequence such as <code class="docutils literal notranslate"><span class="pre">[]</span></code> will make it fail.</p></li>
+</ul>
+</li>
+<li><p class="card-text">The second assertion checks that each value in the list can be turned into an integer.</p>
+<ul>
+<li><p class="card-text">Input such as <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,'c',</span> <span class="pre">3]</span></code> will make it fail.</p></li>
+</ul>
+</li>
+<li><p class="card-text">The third assertion checks that the total of the list is greater than 0.</p>
+<ul>
+<li><p class="card-text">Input such as <code class="docutils literal notranslate"><span class="pre">[-10,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> will make it fail.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -466,17 +652,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="testing.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="errors.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Testing</p>
+            <p class="prev-next-title">Python Errors</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="exceptions.html" title="next page">
+    <a class='right-next' id="next-link" href="tdd.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exceptions</p>
+        <p class="prev-next-title">Test-driven development</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

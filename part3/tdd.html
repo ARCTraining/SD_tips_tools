@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Fixtures (tools to consistently test a piece of software)" href="fixtures.html" />
-    <link rel="prev" title="Part 3.2" href="overview2.html" />
+    <link rel="next" title="Part 3.2" href="overview2.html" />
+    <link rel="prev" title="Assertions" href="assertions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -244,19 +244,19 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="overview1.html">
    Part 3.1
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="testing.html">
-     Testing
+    <a class="reference internal" href="errors.html">
+     Python Errors
     </a>
    </li>
    <li class="toctree-l2">
@@ -264,53 +264,23 @@ const thebe_selector_output = ".output, .cell_output"
      Assertions
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exceptions.html">
-     Exceptions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="unit-tests.html">
-     Unit tests
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pytest.html">
-     Running tests with Pytest
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="edge-corner.html">
-     Edge and Corner cases
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="integration-regression.html">
-     Integration and Regression testing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="continuous-integration.html">
-     Continuous Integration
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="overview2.html">
-   Part 3.2
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Test-driven development
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="overview2.html">
+   Part 3.2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="fixtures.html">
      Fixtures (tools to consistently test a piece of software)
@@ -419,6 +389,61 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naive-solution">
+   Naive solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-driven-development-solution">
+   Test-driven development solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#possible-tests-range-overlap-example">
+   Possible tests: range overlap example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#no-overlap">
+     No overlap
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#length-zero">
+     Length zero
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#single-range">
+     Single range
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#negative-range">
+     Negative range
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-possibilities">
+     Other possibilities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#range-overlapping-function">
+   Range overlapping function
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -431,6 +456,61 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naive-solution">
+   Naive solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-driven-development-solution">
+   Test-driven development solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#possible-tests-range-overlap-example">
+   Possible tests: range overlap example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#no-overlap">
+     No overlap
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#length-zero">
+     Length zero
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#single-range">
+     Single range
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#negative-range">
+     Negative range
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-possibilities">
+     Other possibilities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#range-overlapping-function">
+   Range overlapping function
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -439,6 +519,144 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="test-driven-development">
 <h1>Test-driven development<a class="headerlink" href="#test-driven-development" title="Permalink to this headline">¶</a></h1>
+<p>An assertion checks that something is true at a particular point in the program. The next step is to check the overall behaviour of a piece of code, i.e., to make sure that it produces the right output when it’s given a particular input. For example, suppose we need to find where two or more time series overlap. The range of each time series is represented as a pair of numbers, which are the time the interval started and ended. The output is the largest range that they all include:</p>
+<p><img alt="Range overlap" src="../_images/range_overlap.png" /></p>
+<div class="section" id="naive-solution">
+<h2>Naive solution<a class="headerlink" href="#naive-solution" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">range_overlap</span></code>.</p></li>
+<li><p>Call it interactively on two or three different inputs.</p></li>
+<li><p>If it produces the wrong answer, fix the function and re-run that test.</p></li>
+</ul>
+<p>This clearly works — after all, thousands of scientists are doing it right now — but there’s a better way</p>
+</div>
+<div class="section" id="test-driven-development-solution">
+<h2>Test-driven development solution<a class="headerlink" href="#test-driven-development-solution" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Write a short function for each test.</p></li>
+<li><p>Write a <code class="docutils literal notranslate"><span class="pre">range_overlap</span></code> function that should pass those tests.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">range_overlap</span></code> produces any wrong answers, fix it and re-run the test functions.</p></li>
+</ul>
+<p>Writing the tests before writing the function they exercise is called <strong>test-driven development (TDD)</strong>.
+Its advocates believe it produces better code faster because:</p>
+<ul class="simple">
+<li><p>If people write tests after writing the thing to be tested, they are subject to confirmation bias, i.e., they subconsciously write tests to show that their code is correct, rather than to find errors.</p></li>
+<li><p>Writing tests helps programmers figure out what the function is actually supposed to do.</p></li>
+</ul>
+</div>
+<div class="section" id="possible-tests-range-overlap-example">
+<h2>Possible tests: range overlap example<a class="headerlink" href="#possible-tests-range-overlap-example" title="Permalink to this headline">¶</a></h2>
+<p>Let’s think in all possible scenarios for this problem and how we could test them.</p>
+<div class="section" id="no-overlap">
+<h3>No overlap<a class="headerlink" href="#no-overlap" title="Permalink to this headline">¶</a></h3>
+<p>Considering two or more ranges, there is a possibility that there is no overlap.</p>
+<p>Example:</p>
+<ul class="simple">
+<li><p>Using this range <code class="docutils literal notranslate"><span class="pre">[(0.0,</span> <span class="pre">1.0),</span> <span class="pre">(5.0,</span> <span class="pre">6.0)]</span></code>, the answer should be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Check the example code:<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">range_overlap</span><span class="p">([</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">)</span> <span class="p">])</span> <span class="o">==</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<div class="section" id="length-zero">
+<h3>Length zero<a class="headerlink" href="#length-zero" title="Permalink to this headline">¶</a></h3>
+<p>Considering two or more ranges, there is a possibility that there are two points
+with the same value, but still not overlapping.</p>
+<p>Example:</p>
+<ul class="simple">
+<li><p>Using this range <code class="docutils literal notranslate"><span class="pre">[(0.0,</span> <span class="pre">1.0),</span> <span class="pre">(1.0,</span> <span class="pre">2.0)]</span></code>, the answer should be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Check the example code:<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">range_overlap</span><span class="p">([</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span> <span class="p">])</span> <span class="o">==</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<div class="section" id="single-range">
+<h3>Single range<a class="headerlink" href="#single-range" title="Permalink to this headline">¶</a></h3>
+<p>If we pass just one range, the overlapping should be the same range.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Check the example code:<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">range_overlap</span><span class="p">([</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details><p>Or… we could define that we need at least two ranges!</p>
+</div>
+<div class="section" id="negative-range">
+<h3>Negative range<a class="headerlink" href="#negative-range" title="Permalink to this headline">¶</a></h3>
+<p>If one of our ranges has a negative value, the code returns the desired value?</p>
+<p>Example</p>
+<ul class="simple">
+<li><p>the ranges <code class="docutils literal notranslate"><span class="pre">[(0.0,</span> <span class="pre">1.0),</span> <span class="pre">(0.0,</span> <span class="pre">2.0),</span> <span class="pre">(-1.0,</span> <span class="pre">1.0)]</span></code> should return the overlapping
+<code class="docutils literal notranslate"><span class="pre">(0.0,</span> <span class="pre">1.0)</span></code></p></li>
+</ul>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Check the example code:<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">range_overlap</span><span class="p">([</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<div class="section" id="other-possibilities">
+<h3>Other possibilities<a class="headerlink" href="#other-possibilities" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>same ranges</p></li>
+<li><p>overlapping ranges</p></li>
+<li><p>tree or more ranges</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="range-overlapping-function">
+<h2>Range overlapping function<a class="headerlink" href="#range-overlapping-function" title="Permalink to this headline">¶</a></h2>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Check an idea for the <code class="docutils literal notranslate"><span class="pre">range_overlap</span></code> function<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">range_overlap</span><span class="p">(</span><span class="n">ranges</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return common overlap among a set of [low, high] ranges&quot;&quot;&quot;</span>
+    <span class="n">lowest</span> <span class="o">=</span> <span class="n">ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">highest</span> <span class="o">=</span> <span class="n">ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ranges</span><span class="p">:</span>
+        <span class="n">lowest</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">lowest</span><span class="p">,</span> <span class="n">low</span><span class="p">)</span>
+        <span class="n">highest</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">highest</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">lowest</span> <span class="o">&gt;</span> <span class="n">highest</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="n">lowest</span> <span class="o">==</span> <span class="n">highest</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">lowest</span><span class="p">,</span> <span class="n">highest</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -466,17 +684,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="overview2.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="assertions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Part 3.2</p>
+            <p class="prev-next-title">Assertions</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="fixtures.html" title="next page">
+    <a class='right-next' id="next-link" href="overview2.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fixtures (tools to consistently test a piece of software)</p>
+        <p class="prev-next-title">Part 3.2</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
