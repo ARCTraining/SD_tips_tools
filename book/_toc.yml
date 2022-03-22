@@ -44,11 +44,11 @@ parts:
     sections:
     - file: part3/errors
     - file: part3/assertions
-    - file: part3/tdd
 
   - file: part3/overview2
     sections:
-    - file: part3/fixtures
+    - file: part3/testing
+    - file: part3/tdd
 
   - file: part3/overview3
     sections:
