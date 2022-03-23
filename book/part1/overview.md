@@ -14,3 +14,7 @@
 
 ```{tableofcontents}
 ```
+
+Also check the
+[slides](https://raw.githack.com/ARCTraining/cdt_fluids_2022/main/slides/CDT-training_1.html)
+related with this content.
