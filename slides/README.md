@@ -21,6 +21,7 @@ You can use the links bellow to view the slides content with `raw.githack.com`:
 - [CDT-training_2-1](https://raw.githack.com/ARCTraining/cdt_fluids_2022/main/slides/CDT-training_2-1.html)
 - [CDT-training_3-1](https://raw.githack.com/ARCTraining/cdt_fluids_2022/main/slides/CDT-training_3-1.html)
 - [CDT-training_3-2](https://raw.githack.com/ARCTraining/cdt_fluids_2022/main/slides/CDT-training_3-2.html)
+- [CDT-training_3-3](https://raw.githack.com/ARCTraining/cdt_fluids_2022/main/slides/CDT-training_3-3.html)
 
 ## Navigation
 
