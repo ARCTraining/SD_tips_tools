@@ -55,6 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Suggested solution: Monte Carlo" href="suggestion.html" />
     <link rel="prev" title="Part 3.3" href="overview3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -302,6 +303,16 @@ const thebe_selector_output = ".output, .cell_output"
      Case of study
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="suggestion.html">
+     Suggested solution: Monte Carlo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="solution.html">
+     Participants solution
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -388,6 +399,26 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-problem">
+   The Problem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ideation-requirements">
+     Ideation &amp; Requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -400,6 +431,26 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-problem">
+   The Problem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ideation-requirements">
+     Ideation &amp; Requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -408,6 +459,72 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="case-of-study">
 <h1>Case of study<a class="headerlink" href="#case-of-study" title="Permalink to this headline">¶</a></h1>
+<p>The last session of this training will consist of the execution of a project
+with the objective of putting into practice the main points presented during the
+training.</p>
+<p>The aim is to practice:</p>
+<ul class="simple">
+<li><p>The steps of the Software Development Life Cycle, mainly the steps of:</p>
+<ul>
+<li><p>Ideation</p></li>
+<li><p>Requirements</p></li>
+<li><p>Development</p></li>
+<li><p>Testing</p></li>
+</ul>
+</li>
+<li><p>Make use of good practices:</p>
+<ul>
+<li><p>virtual environment (using <code class="docutils literal notranslate"><span class="pre">conda</span></code>)</p></li>
+<li><p>project layout (using <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code>)</p></li>
+<li><p>code formatting (using <code class="docutils literal notranslate"><span class="pre">black</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Use version control collaboratively:</p>
+<ul>
+<li><p>git</p></li>
+<li><p>GitHub</p>
+<ul>
+<li><p>branches</p></li>
+<li><p>pull requests</p></li>
+<li><p>issues</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Test-driven development</p></li>
+</ul>
+<div class="section" id="the-problem">
+<h2>The Problem<a class="headerlink" href="#the-problem" title="Permalink to this headline">¶</a></h2>
+<p>Participants must develop a code that returns the area of a circle for a
+given radius.</p>
+<div class="section" id="ideation-requirements">
+<h3>Ideation &amp; Requirements<a class="headerlink" href="#ideation-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Although the problem seems simple, some requirements will be added during the
+<strong>Ideation and requirements</strong> steps.</p>
+<p>The objective of this exercise is to show how the solution to each problem can
+vary according to the research needs and that, therefore, before starting to
+write the code, it is necessary to fully understand what is being requested.</p>
+<p>The requirements:</p>
+<ul class="simple">
+<li><p>The main requirement is that <strong>no</strong> predefined value for <code class="docutils literal notranslate"><span class="pre">pi</span></code> should be used.</p></li>
+<li><p>The value of <code class="docutils literal notranslate"><span class="pre">pi</span></code> (from math package, for example) can, however, be used to check the accuracy of the result.</p></li>
+<li><p>The result can have a maximum error of 0.01% compared to standard methods (using <code class="docutils literal notranslate"><span class="pre">pi</span></code> from math package and <code class="docutils literal notranslate"><span class="pre">pi*r**2</span></code>)</p></li>
+</ul>
+<p>Some ideas to brainstorm:</p>
+<ul class="simple">
+<li><p>Create a method to return the value of <code class="docutils literal notranslate"><span class="pre">pi</span></code>.</p></li>
+<li><p>Create a method to return the error.</p>
+<ul>
+<li><p>better: make the program stop only when it reaches the desired error</p></li>
+</ul>
+</li>
+<li><p>Generalize the code to allow the inclusion of the volume calculation (using the same method in 3 dimensions)</p></li>
+<li><p>Generalize the code to allow the inclusion of other areas related to circle, such as cylinder and cone.</p></li>
+<li><p>Produce some outputs plots.</p></li>
+</ul>
+<p><em>Please note that these ideas are just a starting point - participants will be free to design their project, as long as they respect the main idea and requirements.</em></p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -441,6 +558,13 @@ const thebe_selector_output = ".output, .cell_output"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Part 3.3</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="suggestion.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Suggested solution: Monte Carlo</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             

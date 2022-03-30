@@ -1,0 +1,833 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suggested solution: Monte Carlo &#8212; Software development - good practices and tips</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://github.com/ARCTraining/cdt_fluids_2022/part3/suggestion.html" />
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Participants solution" href="solution.html" />
+    <link rel="prev" title="Case of study" href="study-case.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Software development - good practices and tips</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Software development in a nutshell
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part1/overview.html">
+   Part 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/project-lifecycles.html">
+     Software Development Life Cycle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/agile.html">
+     Project management methodologies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/tasks.html">
+     Tasks &amp; Kanban
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/structure.html">
+     Laying out a coding project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/package-managers.html">
+     Package managers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/tips.html">
+     Additional tips
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting to grips with version control
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/overview1.html">
+   Part 2.1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/vc.html">
+     What is Version Control and why do I need it?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/git.html">
+     Setting up Git
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/local-repo.html">
+     Creating a local repository
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/tracking.html">
+     Tracking Changes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/history.html">
+     Exploring History
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/ignore.html">
+     Ignoring Things
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/branches.html">
+     Branching
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/glossary.html">
+     Git glossary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/overview2.html">
+   Part 2.2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/git-vsc.html">
+     Git &amp; GitHub &amp; Visual Studio Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/github.html">
+     Github repository
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/synchronizing.html">
+     Synchronizing: Local &amp; GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/synchronizing-vsc.html">
+     Synchronizing: Visual Studio Code way
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/issues.html">
+     GitHub issues
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting better at Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="overview1.html">
+   Part 3.1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="errors.html">
+     Python Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="assertions.html">
+     Assertions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="overview2.html">
+   Part 3.2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="testing.html">
+     Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tdd.html">
+     Test-driven development
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="overview3.html">
+   Part 3.3
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="study-case.html">
+     Case of study
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Suggested solution: Monte Carlo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="solution.html">
+     Participants solution
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Visit the <a href="https://arcleeds.github.io/">Research Computing Home Site</a> <div> This book is powered by <a href="https://jupyterbook.org">Jupyter Book</a> </div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/part3/suggestion.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ARCTraining/cdt_fluids_2022"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ARCTraining/cdt_fluids_2022/issues/new?title=Issue%20on%20page%20%2Fpart3/suggestion.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/ARCTraining/cdt_fluids_2022/edit/gh-pages/part3/suggestion.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution-suggested-steps">
+   Solution suggested steps
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-main-code-file">
+   The main code file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-test-file">
+   The test file
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Suggested solution: Monte Carlo</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution-suggested-steps">
+   Solution suggested steps
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-main-code-file">
+   The main code file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-test-file">
+   The test file
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="suggested-solution-monte-carlo">
+<h1>Suggested solution: Monte Carlo<a class="headerlink" href="#suggested-solution-monte-carlo" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Monte Carlo methods, or Monte Carlo experiments, are a broad class of
+computational algorithms that rely on repeated random sampling to obtain
+numerical results. The underlying concept is to use randomness to solve
+problems that might be deterministic in principle. They are often used in
+physical and mathematical problems and are most useful when it is difficult
+or impossible to use other approaches.
+- <a class="reference external" href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Wikipedia</a></p>
+</div></blockquote>
+<p>See this video to having some insights:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g06ecTJGY7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="section" id="solution-suggested-steps">
+<h2>Solution suggested steps<a class="headerlink" href="#solution-suggested-steps" title="Permalink to this headline">¶</a></h2>
+<p>The code should:</p>
+<ol class="simple">
+<li><p>Receive a radius value</p></li>
+<li><p>Sort a random x-value inside a line of 2*radius size</p></li>
+<li><p>Sort a random y-value inside a line of 2*radius size</p></li>
+<li><p>Check if the (x,y) point is inside or outside the circle</p>
+<ul class="simple">
+<li><p>If inside, add 1 to a counter</p></li>
+</ul>
+</li>
+<li><p>Determine the area by using the proportion of total sorted points and the total number of points inside the circle.</p></li>
+<li><p>Determine the error between the calculated area and the theoretical area.</p>
+<ul class="simple">
+<li><p>If the error is lower than the desired error, stop the code.</p></li>
+<li><p>If the error is higher, repeat steps from 2 to 6.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="the-main-code-file">
+<h2>The main code file<a class="headerlink" href="#the-main-code-file" title="Permalink to this headline">¶</a></h2>
+<p>If you need some ideas related with the main code, you can see my code bellow.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+See the main code<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `circle_area.py` file content</span>
+<span class="c1"># you can use this file by typing: $ python circle_area.py</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">centre</span><span class="p">,</span> <span class="n">desired_error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># circle related variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">centre</span> <span class="o">=</span> <span class="n">centre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">desired_error</span> <span class="o">=</span> <span class="n">desired_error</span>
+
+        <span class="c1"># status lists</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">areas</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pi</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_2D_point</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">center</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="p">),</span> <span class="n">high</span><span class="o">=</span><span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="p">),</span> <span class="n">high</span><span class="o">=</span><span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">point</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_area</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">inside</span><span class="p">,</span> <span class="n">total</span><span class="p">):</span>
+        <span class="n">area</span> <span class="o">=</span> <span class="p">(</span><span class="n">inside</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">radius</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">total</span>
+        <span class="k">return</span> <span class="n">area</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_error</span><span class="p">(</span><span class="n">theoretical</span><span class="p">,</span> <span class="n">calculated</span><span class="p">):</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">calculated</span> <span class="o">*</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="n">theoretical</span> <span class="o">-</span> <span class="mf">100.0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">error</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_pi</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">area</span><span class="p">):</span>
+        <span class="n">pi</span> <span class="o">=</span> <span class="n">area</span> <span class="o">/</span> <span class="n">r</span> <span class="o">/</span> <span class="n">r</span>
+        <span class="k">return</span> <span class="n">pi</span>
+
+    <span class="k">def</span> <span class="nf">monte_carlo_2D_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inside</span><span class="p">,</span> <span class="n">total</span><span class="p">):</span>
+        <span class="c1"># sort a random point</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_2D_point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">centre</span><span class="p">)</span>
+
+        <span class="c1"># determine if it is inside the circle</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">point</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">centre</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">:</span>
+            <span class="n">inside</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># update total</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">inside</span><span class="p">,</span> <span class="n">total</span>
+
+    <span class="k">def</span> <span class="nf">get_circle_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># ensure that all values are valid</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">centre</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">centre</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">centre</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">desired_error</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">desired_error</span><span class="p">)</span>
+
+            <span class="c1"># initialize counters</span>
+            <span class="n">inside</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># set necessary values</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">desired_error</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">theoretical_area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">**</span> <span class="mi">2</span>
+
+            <span class="c1"># start main loop</span>
+            <span class="k">while</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">desired_error</span><span class="p">:</span>
+                <span class="c1"># update counters</span>
+                <span class="n">inside</span><span class="p">,</span> <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">monte_carlo_2D_step</span><span class="p">(</span><span class="n">inside</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+
+                <span class="c1"># determine the stats</span>
+                <span class="n">area</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_area</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">inside</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_error</span><span class="p">(</span><span class="n">theoretical_area</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+                <span class="n">pi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_pi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+
+                <span class="c1"># add values to stats lists</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">areas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+
+            <span class="k">return</span>
+
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">_</span><span class="p">:</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This exception is raised when one or more values</span>
+<span class="sd">            (from r, x, y, err) are not `int` or `float`.</span>
+<span class="sd">            </span>
+<span class="sd">            The code will return empty stats.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  You need enter valid values (int or float) </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This exception is raised when the radius is zero.</span>
+<span class="sd">            </span>
+<span class="sd">            The code will return empty stats.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  You need enter valid radius != 0 </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># request inputs</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Please enter the circle radius value: &quot;</span><span class="p">)</span>
+    <span class="n">centreX</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter the circle centre x coordinate: &quot;</span><span class="p">)</span>
+    <span class="n">centreY</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter the circle centre y coordinate: &quot;</span><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter the minimum desired error: &quot;</span><span class="p">)</span>
+
+    <span class="c1"># create the circle object</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="p">[</span><span class="n">centreX</span><span class="p">,</span> <span class="n">centreY</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="c1"># get circle stats</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+
+    <span class="c1"># print some info:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">areas</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  The circle area is: &quot;</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">areas</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  The calculated pi is: &quot;</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">pi</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  The error is: &quot;</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># You can also make some useful plots</span>
+    <span class="c1"># Example: ploting the pi value as a function of the number of random points</span>
+    <span class="k">if</span> <span class="n">circle</span><span class="o">.</span><span class="n">areas</span> <span class="o">!=</span> <span class="p">[]:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Calculated  $\pi$&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Theoretical $\pi$&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="c1"># plt.save(&#39;monte_carlo_pi.png&#39;)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+</pre></div>
+</div>
+</div>
+</details></div>
+<div class="section" id="the-test-file">
+<h2>The test file<a class="headerlink" href="#the-test-file" title="Permalink to this headline">¶</a></h2>
+<p>If you need some ideas related with the test file, you can see my code bellow.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+See the test code<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `test_circle` file content</span>
+<span class="c1"># you can use this file by typing: $ pytest</span>
+<span class="kn">from</span> <span class="nn">circle_area</span> <span class="kn">import</span> <span class="n">Circle</span>
+
+
+<span class="k">def</span> <span class="nf">test_string</span><span class="p">():</span>
+    <span class="c1"># should replicate this test to check if it works with other wrong variables</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">2.0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>  <span class="c1"># wrong value</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mf">5.0</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">circle</span><span class="o">.</span><span class="n">areas</span> <span class="o">==</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">test_list</span><span class="p">():</span>
+    <span class="c1"># should replicate this test to check if it works with other wrong variables</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># wrong value</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mf">5.0</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">circle</span><span class="o">.</span><span class="n">areas</span> <span class="o">==</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">test_zero_radius</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mf">5.0</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">circle</span><span class="o">.</span><span class="n">areas</span> <span class="o">==</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">test_negative_radius</span><span class="p">():</span>
+    <span class="c1"># Note that I choose to use abs(radius)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mf">5.0</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">circle</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">err</span>
+
+
+<span class="k">def</span> <span class="nf">test_zero_centre</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">circle</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">err</span>
+
+
+<span class="k">def</span> <span class="nf">test_non_zero_centre</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">23</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">circle</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">err</span>
+
+
+<span class="k">def</span> <span class="nf">test_negative_centre</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">23</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">circle</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">err</span>
+
+
+<span class="k">def</span> <span class="nf">test_mix_centre</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">23</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">circle</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">err</span>
+
+
+<span class="k">def</span> <span class="nf">test_larger_radius</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">circle</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">err</span>
+
+
+<span class="k">def</span> <span class="nf">test_lower_error</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="mf">0.001</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">get_circle_stats</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">circle</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">err</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./part3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="study-case.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Case of study</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Participants solution</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By University of Leeds Research Computing Team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
