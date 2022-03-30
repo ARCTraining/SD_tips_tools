@@ -53,3 +53,5 @@ parts:
   - file: part3/overview3
     sections:
     - file: part3/study-case
+    - file: part3/suggestion
+    - file: part3/solution
