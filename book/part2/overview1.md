@@ -1,6 +1,4 @@
-# Part 2.1
-
-## Introduction to Version Control
+# Introduction to Version Control
 
 ```{admonition} When?
 :class: tip
@@ -9,7 +7,7 @@
 * From 1:30 pm to 4:30 pm
 ```
 
-### Content
+## Content
 
 ```{tableofcontents}
 ```
