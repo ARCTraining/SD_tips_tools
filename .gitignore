@@ -6,3 +6,6 @@
 
 # jupyer notebook checkpoints
 *.ipynb_checkpoints
+
+.vscode/*
+.directory
