@@ -24,13 +24,13 @@ chapters:
   - file: git/branches
   - file: git/glossary
 
-- file: part2/overview2
+- file: github/overview2
   sections:
-  - file: part2/git-vsc
-  - file: part2/github
-  - file: part2/synchronizing
-  - file: part2/synchronizing-vsc
-  - file: part2/issues
+  - file: github/git-vsc
+  - file: github/github
+  - file: github/synchronizing
+  - file: github/synchronizing-vsc
+  - file: github/issues
   
 - file: part3/overview1
   sections:

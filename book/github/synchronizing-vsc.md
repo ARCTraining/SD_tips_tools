@@ -9,28 +9,28 @@ instead of the terminal.
 First open your local git repository. On the lef bar choose the `Explorer` icon,
 and then click on the `Open Folder` button:
 
-![VSC: open folder](../assets/img/part2/vsc1.png)
+![VSC: open folder](../assets/img/github/vsc1.png)
 
 The second step is open the `Source Control` tab (also on the left bar).
 This tab offer several Version Control features. For instance we are interested
 in create a remote (link) with GitHub. So, go to the `Remotes` and click on `+`
 (add remote):
 
-![VSC: setup remote](../assets/img/part2/vsc2.png)
+![VSC: setup remote](../assets/img/github/vsc2.png)
 
 A new tab on the top center will popup asking for the remote name. We strongly
 recommend the `origin` name. Type the name and press enter.
 
-![VSC: remote name](../assets/img/part2/vsc3.png)
+![VSC: remote name](../assets/img/github/vsc3.png)
 
 After that, a very similar tab will popup. Now you should add the github link.
 To get this link you need first to create an empty repository on GitHub.
 
-![VSC: remote link](../assets/img/part2/vsc4.png)
+![VSC: remote link](../assets/img/github/vsc4.png)
 
 Now you should push your changes.
 
-![VSC: push changes](../assets/img/part2/vsc5.png)
+![VSC: push changes](../assets/img/github/vsc5.png)
 
 ```{note}
 Following the above steps you did the same git bash steps, but in a 
@@ -43,13 +43,13 @@ Let's starting again open a local git repository.
 On the lef bar choose the `Explorer` icon,
 and then click on the `Open Folder` button:
 
-![VSC: open folder](../assets/img/part2/vsc1.png)
+![VSC: open folder](../assets/img/github/vsc1.png)
 
 Now, look for a cloud symbol in the bottom bar.
 Don't worry if you don't see all the symbols in the image below,
 they depend on the installed extensions.
 
-![VSC: cloud button](../assets/img/part2/vsc6.png)
+![VSC: cloud button](../assets/img/github/vsc6.png)
 
 A new bar should popup on the top.
 VSC will automatically suggest that the local repository be published on GitHub.
@@ -57,7 +57,7 @@ The same name is suggested, but you can change it if you wish. You can also
 choose between a public or private repository. Click in your desired option and
 wait.
 
-![VSC: publishing a new repo](../assets/img/part2/vsc7.png)
+![VSC: publishing a new repo](../assets/img/github/vsc7.png)
 
 ```{warning}
 If you chose a name that already exist in your GitHub an error will popup.
@@ -81,12 +81,12 @@ Here the procedure is very similar to `bash`, but in a graphical interface.
 Go again to the `Explorer` icon on left bar,
 and then click on the `Clone Repository` button:
 
-![VSC: clone repo](../assets/img/part2/vsc8.png)
+![VSC: clone repo](../assets/img/github/vsc8.png)
 
 A new box will popup. Select the GitHub option, and some repository options are
 going to be listed. You can search and select the desired repo to clone.
 
-![VSC: github search](../assets/img/part2/vsc9.png)
+![VSC: github search](../assets/img/github/vsc9.png)
 
 Then, select the place to store your repo.
 
@@ -96,7 +96,7 @@ After working for a while without add or commit your changes, you will notice a
 series of tags next to your files in Visual Studio Code.
 See this horrible example:
 
-![VSC: tracking changes](../assets/img/part2/vsc10.png)
+![VSC: tracking changes](../assets/img/github/vsc10.png)
 
 The tags are:
 
@@ -111,7 +111,7 @@ indicates the amount of changes that were not included in git
 Move to this tab and let's see how VSC helps us organize our work even when we
 are extremely disorganized.
 
-![VSC: Changes and staging area](../assets/img/part2/vsc11.png)
+![VSC: Changes and staging area](../assets/img/github/vsc11.png)
 
 All changed files are displayed here. To view the changes You can select a file.
 The old and the new version are going to be displayed and the differences are
@@ -125,7 +125,7 @@ changes and add to the staging area whatever you think is relevant for the same
 commit. Before commit, you can review all staged files. If necessary remove than
 from staged area using the `-` button.
 
-![VSC: Staged files](../assets/img/part2/vsc12.png)
+![VSC: Staged files](../assets/img/github/vsc12.png)
 
 **Advanced tip:** Sometimes we make several changes within the same file,
 but not all of these changes belong to the same commit. For example,
@@ -134,7 +134,7 @@ sessions are in the same file. Another example is shown in the image below,
 where the table of contents was changed in different sessions and I wanted to
 add only one session to the commit.
 
-![VSC: adding partial files to staging area](../assets/img/part2/vsc16.png)
+![VSC: adding partial files to staging area](../assets/img/github/vsc16.png)
 
 In VSC you can easily add the desired part in the staging area. For that:
 
@@ -146,13 +146,13 @@ After group all related changes in the staged are, you are ready to commit.
 Now type a commit message on the above space, and press the check button
 (equivalent to `git commit -m "message"` command).
 
-![VSC: commit](../assets/img/part2/vsc13.png)
+![VSC: commit](../assets/img/github/vsc13.png)
 
 Now, repeat the process of review changes, add related changes to staging area,
 and committing them, until the `Changes` tab is empty. In this point the `sync`
 button should appear (this is equivalent to `git push origin main`):
 
-![VSC: push](../assets/img/part2/vsc14.png)
+![VSC: push](../assets/img/github/vsc14.png)
 
 ## Push local changes to a remote repo using a different branch
 
@@ -162,7 +162,7 @@ and then make a pull request.
 
 First things first: create a new branch on VSC:
 
-![VSC: new branch](../assets/img/part2/vsc15.png)
+![VSC: new branch](../assets/img/github/vsc15.png)
 
 A box to type the branch name will appear. Type something meaningful and press
 enter. After that, in the commit box, you should be able to see the new branch
@@ -173,7 +173,7 @@ complete branch management options. In this
 section you can see all available branches, checkout to another branch with one
 click, create a new branch and more.
 
-![VSC: branches section](../assets/img/part2/vsc17.png)
+![VSC: branches section](../assets/img/github/vsc17.png)
 
 ## Compare & pull request
 
@@ -183,24 +183,24 @@ better from every world). So, open your GitHub repo and a suggestion for pull
 request should be on the `<> code` tab. Press the `Compare & pull request`
 button.
 
-![GH: pull request](../assets/img/part2/gh1.png)
+![GH: pull request](../assets/img/github/gh1.png)
 
 The first and basic thing is verify if the branches can be merged. GitHub
 is going to flag this for us.
 
-![GH: merge flag](../assets/img/part2/gh2.png)
+![GH: merge flag](../assets/img/github/gh2.png)
 
 The next thing is create the message for the pull request. This includes a
 Title and a long description. You can add files, links, mention collaborators,
 etc. Note that the message can be written in markdown, this includes headers,
 lists, and tables.
 
-![GH: pull request message](../assets/img/part2/gh3.png)
+![GH: pull request message](../assets/img/github/gh3.png)
 
 Before submit the pull request you can also tweak some configurations (right
 column).
 
-![GH: reviewers](../assets/img/part2/gh4.png)
+![GH: reviewers](../assets/img/github/gh4.png)
 
 Two of these options are are really important:
 
