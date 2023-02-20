@@ -4,7 +4,7 @@
 
 Unfortunately the situation below is more common than we like to admit.
 
-[![Piled Higher and Deeper by Jorge Cham, http://www.phdcomics.com/comics/archive_print.php?comicid=1531](../assets/img/part2/phd101212s.png)](http://www.phdcomics.com)
+[![Piled Higher and Deeper by Jorge Cham, http://www.phdcomics.com/comics/archive_print.php?comicid=1531](../assets/img/git/phd101212s.png)](http://www.phdcomics.com)
 
 \- "Piled Higher and Deeper" by Jorge Cham, <http://www.phdcomics.com>
 
@@ -41,7 +41,7 @@ You can think of it as a tape: if you rewind the tape and start at the base
 document, then you can play back each change and end up with your
 latest version.
 
-![Changes Are Saved Sequentially](../assets/img/part2/play-changes.png)
+![Changes Are Saved Sequentially](../assets/img/git/play-changes.png)
 
 ### Different Versions Can be Saved
 
@@ -51,14 +51,14 @@ base document and getting different versions of the document. For
 example, two users can make independent sets of changes based on the
 same document.
 
-![Different Versions Can be Saved](../assets/img/part2/versions.png)
+![Different Versions Can be Saved](../assets/img/git/versions.png)
 
 ### Multiple Versions Can be Merged
 
 Unless there are `conflicts`, you can even play two sets of changes onto the same
 base document.
 
-![Multiple Versions Can be Merged](../assets/img/part2/merge.png)
+![Multiple Versions Can be Merged](../assets/img/git/merge.png)
 
 ## Version control systems
 

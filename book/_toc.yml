@@ -13,16 +13,16 @@ chapters:
   - file: part1/package-managers
   - file: part1/tips
 
-- file: part2/overview1
+- file: git/overview1
   sections:
-  - file: part2/vc
-  - file: part2/git
-  - file: part2/local-repo
-  - file: part2/tracking
-  - file: part2/history
-  - file: part2/ignore
-  - file: part2/branches
-  - file: part2/glossary
+  - file: git/vc
+  - file: git/git
+  - file: git/local-repo
+  - file: git/tracking
+  - file: git/history
+  - file: git/ignore
+  - file: git/branches
+  - file: git/glossary
 
 - file: part2/overview2
   sections:
