@@ -713,5 +713,5 @@ Output
 
 :::{tip}
 You can find a Jupyter Notebook to run all functions presented above in [this
-link](https://github.com/ARCTraining/cdt_fluids_2022/tree/main/notebooks/errors.ipynb).
+link](https://github.com/ARCTraining/SD_tips_tools/tree/main/notebooks/errors.ipynb).
 :::
