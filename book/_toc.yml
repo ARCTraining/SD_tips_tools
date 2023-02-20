@@ -4,14 +4,14 @@
 format: jb-book
 root: intro
 chapters:
-- file: part1/overview
+- file: sd-intro/overview
   sections:
-  - file: part1/project-lifecycles
-  - file: part1/agile
-  - file: part1/tasks
-  - file: part1/structure
-  - file: part1/package-managers
-  - file: part1/tips
+  - file: sd-intro/project-lifecycles
+  - file: sd-intro/agile
+  - file: sd-intro/tasks
+  - file: sd-intro/structure
+  - file: sd-intro/package-managers
+  - file: sd-intro/tips
 
 - file: git/overview1
   sections:
