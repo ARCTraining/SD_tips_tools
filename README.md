@@ -1,4 +1,4 @@
-# Training: Software development - good practices and tips
+# Training: Software development - good practices, tips & tools
 
 ## About
 
