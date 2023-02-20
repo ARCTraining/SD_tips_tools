@@ -13,7 +13,7 @@ However, this is just a step in the software development process.
 * Deployment
 * Maintenance
 
-![Project Lifecycle chart](../assets/img/software-lifecicle.jpg)
+![Project Lifecycle chart](../assets/img/sd-intro/software-lifecicle.jpg)
 
 ## Ideation
 
