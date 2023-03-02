@@ -27,8 +27,8 @@ RSE training sessions for first year CDT Fluid Dynamics students
 
 ## Instructors
 
-* Principal Instructor: [Dr Patricia Ternes](https://patricia-ternes.github.io/)
-* Assistant Instructors: [Research Computing Team](https://arc.leeds.ac.uk/about/team/)
+- Principal Instructor: [Dr Patricia Ternes](https://patricia-ternes.github.io/)
+- Assistant Instructors: [Research Computing Team](https://arc.leeds.ac.uk/about/team/)
 
 ## Content
 
