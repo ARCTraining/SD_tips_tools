@@ -4,6 +4,12 @@
 format: jb-book
 root: intro
 chapters:
+- file: setup/overview
+  sections:
+  - file: setup/git-install
+  - file: setup/git-config
+  - file: setup/anaconda
+
 - file: sd-intro/overview
   sections:
   - file: sd-intro/project-lifecycles
@@ -16,7 +22,6 @@ chapters:
 - file: git/overview
   sections:
   - file: git/vc
-  - file: git/git
   - file: git/local-repo
   - file: git/tracking
   - file: git/history
@@ -26,7 +31,6 @@ chapters:
 
 - file: github/overview
   sections:
-  - file: github/git-vsc
   - file: github/github
   - file: github/synchronizing
   - file: github/synchronizing-vsc

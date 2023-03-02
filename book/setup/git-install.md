@@ -1,4 +1,4 @@
-# Git Installation Instructions
+# Installing Git
 
 Please follow the instructions bellow to install and setting up Git.
 
