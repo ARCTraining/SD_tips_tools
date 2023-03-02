@@ -1,4 +1,4 @@
-# Git & Github
+# Github
 
 ```{admonition} When?
 :class: tip

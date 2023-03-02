@@ -13,7 +13,7 @@ chapters:
   - file: sd-intro/package-managers
   - file: sd-intro/tips
 
-- file: git/overview1
+- file: git/overview
   sections:
   - file: git/vc
   - file: git/git
@@ -24,7 +24,7 @@ chapters:
   - file: git/branches
   - file: git/glossary
 
-- file: github/overview2
+- file: github/overview
   sections:
   - file: github/git-vsc
   - file: github/github
@@ -32,17 +32,17 @@ chapters:
   - file: github/synchronizing-vsc
   - file: github/issues
   
-- file: errors/overview1
+- file: errors/overview
   sections:
   - file: errors/errors
   - file: errors/assertions
 
-- file: testing/overview2
+- file: testing/overview
   sections:
   - file: testing/testing
   - file: testing/tdd
 
-- file: project/overview3
+- file: project/overview
   sections:
   - file: project/study-case
   - file: project/suggestion
