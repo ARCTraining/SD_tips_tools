@@ -9,8 +9,8 @@ chapters:
   - file: sd-intro/project-lifecycles
   - file: sd-intro/agile
   - file: sd-intro/tasks
-  - file: sd-intro/structure
   - file: sd-intro/package-managers
+  - file: sd-intro/structure
   - file: sd-intro/tips
 
 - file: git/overview
