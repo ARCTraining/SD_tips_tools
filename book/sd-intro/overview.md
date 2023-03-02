@@ -1,6 +1,6 @@
-# Part 1
+# Software development in a nutshell
 
-## Learning to develop software tools
+<!-- ## Learning to develop software tools -->
 
 ```{admonition} When?
 :class: tip

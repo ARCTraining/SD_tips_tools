@@ -3,55 +3,47 @@
 
 format: jb-book
 root: intro
-parts:
-- caption: Software development in a nutshell
-  chapters:
-  - file: part1/overview
-    sections:
-    - file: part1/project-lifecycles
-    - file: part1/agile
-    - file: part1/tasks
-    - file: part1/structure
-    - file: part1/package-managers
-    - file: part1/tips
+chapters:
+- file: sd-intro/overview
+  sections:
+  - file: sd-intro/project-lifecycles
+  - file: sd-intro/agile
+  - file: sd-intro/tasks
+  - file: sd-intro/structure
+  - file: sd-intro/package-managers
+  - file: sd-intro/tips
 
-- caption: Getting to grips with version control
-  chapters:
-  - file: part2/overview1
-    sections:
-    - file: part2/vc
-    - file: part2/git
-    - file: part2/local-repo
-    - file: part2/tracking
-    - file: part2/history
-    - file: part2/ignore
-    - file: part2/branches
-    - file: part2/glossary
+- file: git/overview
+  sections:
+  - file: git/vc
+  - file: git/git
+  - file: git/local-repo
+  - file: git/tracking
+  - file: git/history
+  - file: git/ignore
+  - file: git/branches
+  - file: git/glossary
 
-  - file: part2/overview2
-    sections:
-    #- file: part2/forks-branches
-    #- file: part2/merge
-    - file: part2/git-vsc
-    - file: part2/github
-    - file: part2/synchronizing
-    - file: part2/synchronizing-vsc
-    - file: part2/issues
-    
-- caption: Getting better at Python
-  chapters:
-  - file: part3/overview1
-    sections:
-    - file: part3/errors
-    - file: part3/assertions
+- file: github/overview
+  sections:
+  - file: github/git-vsc
+  - file: github/github
+  - file: github/synchronizing
+  - file: github/synchronizing-vsc
+  - file: github/issues
+  
+- file: errors/overview
+  sections:
+  - file: errors/errors
+  - file: errors/assertions
 
-  - file: part3/overview2
-    sections:
-    - file: part3/testing
-    - file: part3/tdd
+- file: testing/overview
+  sections:
+  - file: testing/testing
+  - file: testing/tdd
 
-  - file: part3/overview3
-    sections:
-    - file: part3/study-case
-    - file: part3/suggestion
-    - file: part3/solution
+- file: project/overview
+  sections:
+  - file: project/study-case
+  - file: project/suggestion
+  - file: project/solution

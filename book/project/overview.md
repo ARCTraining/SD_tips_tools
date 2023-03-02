@@ -1,6 +1,4 @@
-# Part 3.3
-
-## Bringing it all together
+# Bringing it all together
 
 ```{admonition} When?
 :class: tip
@@ -9,7 +7,7 @@
 * From 1:30 pm to 4:30 pm
 ```
 
-### Content
+## Content
 
 ```{tableofcontents}
 ```

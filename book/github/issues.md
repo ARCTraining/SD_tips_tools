@@ -3,7 +3,7 @@
 GitHub has a very useful tool to help organize our own tasks. This same tool is
 very powerful for working collaboratively. This is the "Issues" tool:
 
-![Issues overview](../assets/img/part2/gh-issues1.png)
+![Issues overview](../assets/img/github/gh-issues1.png)
 
 ## Creating our first Issue
 
@@ -11,7 +11,7 @@ Every GitHub has a Issue tab. Let's open a very simple Issue - click in the
 green button "New issue". A window very similar to the "Pull request" will
 open:
 
-![Issue description](../assets/img/part2/gh-issues2.png)
+![Issue description](../assets/img/github/gh-issues2.png)
 
 - We are going to point that it is a good idea to create a README.md file.
 - We are also going to point some useful content that should appear in this file.
@@ -29,7 +29,7 @@ in the same task.
 - Click in "Assigners"
 - Add yourself.
 
-![Issue assignment](../assets/img/part2/gh-issues3.png)
+![Issue assignment](../assets/img/github/gh-issues3.png)
 
 ```{note}
 Take note about the Issue number (here `#5`).
@@ -42,11 +42,11 @@ To do this, go to "code" tab and create a new file (`Add file`).
 As README is a very standard file, there is a suggestion to do this. Just click
 on the green `Add a README`:
 
-![New file](../assets/img/part2/gh-issues4.png)
+![New file](../assets/img/github/gh-issues4.png)
 
 Now, just type the changes:
 
-![New content](../assets/img/part2/gh-issues5.png)
+![New content](../assets/img/github/gh-issues5.png)
 
 After that, you should commit your changes (remember that if you are working
 on GitHub, there is no staging area and every change is a commit). You can
@@ -55,7 +55,7 @@ put any commit message here, but there is an **advanced trick** you should use:
 **Add to your commit the link for the issue by adding a `#` and the issue
 number**
 
-![Link commit and issue](../assets/img/part2/gh-issues6.png)
+![Link commit and issue](../assets/img/github/gh-issues6.png)
 
 ## Review the issue
 
@@ -67,7 +67,7 @@ everything that was necessary. In this example, if we compare the Issue with the
 commit, we can see that the authors information is still missing, so the
 issue must remain open. We can add a comment about this:
 
-![Review the issue](../assets/img/part2/gh-issues8.png)
+![Review the issue](../assets/img/github/gh-issues8.png)
 
 ## Closing the issue: the "pro" approach
 
@@ -82,7 +82,7 @@ this issue:
 
 See my commit:
 
-![fix commit](../assets/img/part2/gh-issues7.png)
+![fix commit](../assets/img/github/gh-issues7.png)
 
 Now you can navigate in your Issues tab and see that your Issue was automatically
 closed. If you navigate into the closed issues, you can see that all commits
@@ -117,14 +117,14 @@ We can make this workflow better. We are going to use the README.md file as
 example again, so first step is open the file on GitHub in the source view
 (some file open automatically in this view, some not.).
 
-![File source view](../assets/img/part2/gh-issues9.png)
+![File source view](../assets/img/github/gh-issues9.png)
 
 In the source view, the line numbers should appear in the left corner. After
 find a problem, you can click on the line number and a `...` will appear. Now,
 click in this "more" button and choose the "Reference in new issue" to
 automatically create a issue linked with this line.
 
-![Permanent line link](../assets/img/part2/gh-issues10.png)
+![Permanent line link](../assets/img/github/gh-issues10.png)
 
 ```{note}
 The GitHub is going to use a "permalink" to reference this file/line with the
@@ -140,11 +140,11 @@ and reference them all together.
 The procedure from here is similar to before. The only difference is the
 link in your message. Write your title/message and submit.
 
-![Issue with permalink](../assets/img/part2/gh-issues11.png)
+![Issue with permalink](../assets/img/github/gh-issues11.png)
 
 Now look your new Issue:
 
-![Issue with permalink - rendered](../assets/img/part2/gh-issues12.png)
+![Issue with permalink - rendered](../assets/img/github/gh-issues12.png)
 
 You can note that the permalink was rendered as a file link plus a view of
 linked lines. You can directly click on the file, and solve the issue. Remember
