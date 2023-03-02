@@ -2,7 +2,7 @@
 
 An assertion checks that something is true at a particular point in the program. The next step is to check the overall behaviour of a piece of code, i.e., to make sure that it produces the right output when it’s given a particular input. For example, suppose we need to find where two or more time series overlap. The range of each time series is represented as a pair of numbers, which are the time the interval started and ended. The output is the largest range that they all include:
 
-![Range overlap](../assets/img/part3/range_overlap.png)
+![Range overlap](../assets/img/project/range_overlap.png)
 
 ## Naive solution
 

@@ -32,18 +32,18 @@ chapters:
   - file: github/synchronizing-vsc
   - file: github/issues
   
-- file: part3/overview1
+- file: errors/overview1
   sections:
-  - file: part3/errors
-  - file: part3/assertions
+  - file: errors/errors
+  - file: errors/assertions
 
-- file: part3/overview2
+- file: testing/overview2
   sections:
-  - file: part3/testing
-  - file: part3/tdd
+  - file: testing/testing
+  - file: testing/tdd
 
-- file: part3/overview3
+- file: project/overview3
   sections:
-  - file: part3/study-case
-  - file: part3/suggestion
-  - file: part3/solution
+  - file: project/study-case
+  - file: project/suggestion
+  - file: project/solution
