@@ -6,7 +6,13 @@ RSE training sessions for first year CDT Fluid Dynamics students
 
 ## Introduction
 
-## Pre-requisites
+## Slides
+
+- [Software development in a nutshell](https://raw.githack.com/ARCTraining/SD_tips_tools/main/slides/CDT-training_1.html)
+- [Introduction to Version Control](https://raw.githack.com/ARCTraining/SD_tips_tools/main/slides/CDT-training_2-1.html)
+- [Defensive Program](https://raw.githack.com/ARCTraining/SD_tips_tools/main/slides/CDT-training_3-1.html)
+- [Test Driven Development](https://raw.githack.com/ARCTraining/SD_tips_tools/main/slides/CDT-training_3-2.html)
+- [Final Project](https://raw.githack.com/ARCTraining/SD_tips_tools/main/slides/CDT-training_3-3.html)
 
 ## Instructors
 
