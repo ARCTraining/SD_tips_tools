@@ -16,7 +16,7 @@ The most basic structure for this project should look like:
 
 ```bash
 first-model
-├── first_model
+├── src
 │   └── __init__.py
 └── tests
 |   ├── __init__.py
@@ -169,76 +169,4 @@ By using this method, the project structure should look like:
 
 ```{note}
 In this structure all project source code was organized into a `src` folder.
-```
-
-### Poetry
-
-Note in the above example the environment was managed through `conda` and the
-project structure was created using `cookiecutter` (you also had to specify the
-template).
-
-If you want to do all the procedures using just one tool -- from the
-environment creation up to the project deployment -- an excellent option
-is the [Poetry](https://python-poetry.org/) tool.
-
-> Poetry is a tool for dependency management and packaging in Python. It allows
-> you to declare the libraries your project depends on and it will manage
-> (install/update) them for you.
-
-See Poetry installation instructions [here](https://python-poetry.org/docs/#osx--linux--bashonwindows-install-instructions)
-
-To create the `first-model` project:
-
-```bash
-poetry new first-model
-```
-
-By running `poetry new first-model`, you create a new folder named
-`first-model/`. When you look inside the folder, you’ll see a structure:
-
-```bash
-first-model/
-│
-├── first_model/
-│   └── __init__.py
-│
-├── tests/
-│   ├── __init__.py
-│   └── test_first_model.py
-│
-├── README.rst
-└── pyproject.toml
-```
-
-```{note}
-All the necessary folders and files are created following PEP8 conventions.
-```
-
-If you prefer organize the source code inside a `src` folder, you can create
-the project with the `--src` flag, like:
-
-```bash
-poetry new --src first-model
-```
-
-See [here](https://python-poetry.org/docs/cli/) for more Poetry supported
-commands.
-
-#### pyproject.toml
-
-The file `pyproject.toml` is a configuration file that follows standard that
-was defined in PEP 518 and looks like:
-
-```bash
-[tool.poetry]
-name = "first-model"
-version = "0.1.0"
-description = ""
-authors = ["author name <author email>"]
-
-[tool.poetry.dependencies]
-python = "3.8"
-
-[tool.poetry.dev-dependencies]
-pytest = "^3.4"
 ```
