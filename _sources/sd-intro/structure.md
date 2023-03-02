@@ -16,7 +16,7 @@ The most basic structure for this project should look like:
 
 ```bash
 first-model
-├── first_model
+├── src
 │   └── __init__.py
 └── tests
 |   ├── __init__.py
@@ -26,7 +26,7 @@ first-model
 └── setup
 ```
 
-## Modules & Packages
+### Modules & Packages
 
 - Modules: code files with `.py` extension
 - Packages: directory to group modules. For a folder with several modules to be
@@ -36,7 +36,7 @@ recognized as a package it is necessary to include the file `__init__.py`.
 You also can group your modules in sub-packages.
 ```
 
-## Test & pytest
+### Tests
 
 It's important to ensure that the code is bug-free and returns the expected
 results. Later in this course we will delve into how to properly test our code.
@@ -56,40 +56,34 @@ in the repository and execute them.
 
 \- [pytest](https://pypi.org/project/pytest/)
 
-Consider the following method:
+### Requirements
 
-```
-def inc(x):
-    return x + 1
-```
+Configuration file that list all required external packages for your Python project.
+Two types of requirements file are quite common
 
-See the `test_sample.py` example:
+- `requirements.txt`
+- `environment.yml`
 
-```python
-# content of test_sample.py
-def test_answer():
-    assert inc(3) == 5
-```
-
-By simple executing `pytest`:
+The `requirements.txt` file is a simple file where the content looks like:
 
 ```bash
-$ pytest
-============================= test session starts =============================
-collected 1 items
+python==3.11
+numpy
+tensorflow==2.3.1
+```
 
-test_sample.py F
+The `environment.yml` file is a file used by `conda` to create an environment.
+The content looks like:
 
-================================== FAILURES ===================================
-_________________________________ test_answer _________________________________
-
-    def test_answer():
->       assert inc(3) == 5
-E       assert 4 == 5
-E        +  where 4 = inc(3)
-
-test_sample.py:5: AssertionError
-========================== 1 failed in 0.04 seconds ===========================
+```bash
+name: envName
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python==3.11
+  - numpy
+  - tensorflow==2.3.1
 ```
 
 ## Naming conventions
@@ -104,13 +98,13 @@ The PEP related with python coding style is the
 This file has guidance for all layout related aspects. For instance we are
 interested in the [Package and Module Names](https://www.python.org/dev/peps/pep-0008/#package-and-module-names) section.
 
-> Modules should have short, all-lowercase names. Underscores can be used in
-> the module name if it improves readability. Python packages should also have
-> short, all-lowercase names, although the use of underscores is discouraged.
+> **Modules** should have short, all-lowercase names. *Underscores can be used* in
+> the module name if it improves readability. Python **packages** should also have
+> short, all-lowercase names, although the use of *underscores is discouraged*.
 
 ## Creating project structure
 
-You can create a project structure manually. But there are some standard
+You can create a project structure manually. But there are some automated
 approaches for this.
 
 ### Conda + Cookie cutter
@@ -153,7 +147,7 @@ By using this method, the project structure should look like:
 ├── data
 │   ├── external       <- Data from third party sources.
 │   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
+│   ├── processed      <- The final, canonical data sets for modelling.
 │   └── raw            <- The original, immutable data dump.
 ├── docs               <- Documentation, e.g., doxygen or scientific papers (not tracked by git)
 ├── notebooks          <- Ipython or R notebooks
@@ -165,80 +159,4 @@ By using this method, the project structure should look like:
     ├── models         <- Source code for your own model
     ├── tools          <- Any helper scripts go here
     └── visualization  <- Scripts for visualisation of your results, e.g., matplotlib, ggplot2 related.
-```
-
-```{note}
-In this structure all project source code was organized into a `src` folder.
-```
-
-### Poetry
-
-Note in the above example the environment was managed through `conda` and the
-project structure was created using `cookiecutter` (you also had to specify the
-template).
-
-If you want to do all the procedures using just one tool -- from the
-environment creation up to the project deployment -- an excellent option
-is the [Poetry](https://python-poetry.org/) tool.
-
-> Poetry is a tool for dependency management and packaging in Python. It allows
-> you to declare the libraries your project depends on and it will manage
-> (install/update) them for you.
-
-See Poetry installation instructions [here](https://python-poetry.org/docs/#osx--linux--bashonwindows-install-instructions)
-
-To create the `first-model` project:
-
-```bash
-poetry new first-model
-```
-
-By running `poetry new first-model`, you create a new folder named
-`first-model/`. When you look inside the folder, you’ll see a structure:
-
-```bash
-first-model/
-│
-├── first_model/
-│   └── __init__.py
-│
-├── tests/
-│   ├── __init__.py
-│   └── test_first_model.py
-│
-├── README.rst
-└── pyproject.toml
-```
-
-```{note}
-All the necessary folders and files are created following PEP8 conventions.
-```
-
-If you prefer organize the source code inside a `src` folder, you can create
-the project with the `--src` flag, like:
-
-```bash
-poetry new --src first-model
-```
-
-See [here](https://python-poetry.org/docs/cli/) for more Poetry supported
-commands.
-
-#### pyproject.toml
-
-The file `pyproject.toml` is a configuration file that follows standard that
-was defined in PEP 518 and looks like:
-
-```bash
-[tool.poetry]
-name = "first-model"
-version = "0.1.0"
-description = ""
-authors = ["author name <author email>"]
-
-[tool.poetry.dependencies]
-python = "3.8"
-
-[tool.poetry.dev-dependencies]
-pytest = "^3.4"
 ```

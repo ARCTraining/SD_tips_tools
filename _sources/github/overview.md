@@ -1,10 +1,11 @@
 # Github
 
-```{admonition} When?
-:class: tip
+```{note}
+There are several ways to authenticate to GitHub, including using your username 
+and password with two-factor authentication (2FA), a personal access token, or 
+an SSH key.
 
-* 15th March 2022
-* From 1:30 pm to 4:30 pm
+- See more [About authentication to GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)
 ```
 
 ## Content
