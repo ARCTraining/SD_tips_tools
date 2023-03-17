@@ -45,6 +45,7 @@ chapters:
   sections:
   - file: testing/testing
   - file: testing/tdd
+  - file: testing/unit
 
 - file: project/overview
   sections:
