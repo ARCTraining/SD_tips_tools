@@ -50,5 +50,4 @@ chapters:
 - file: project/overview
   sections:
   - file: project/study-case
-  - file: project/suggestion
-  - file: project/solution
+

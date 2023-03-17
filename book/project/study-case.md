@@ -13,7 +13,7 @@ The aim is to practice:
   - Testing
 - Make use of good practices:
   - virtual environment (using `conda`)
-  - project layout (using `cookiecutter`)
+  - project layout
   - code formatting (using `black`)
 - Use version control collaboratively:
   - git
@@ -25,31 +25,23 @@ The aim is to practice:
 
 ## The Problem
 
-Participants must develop a code that returns the area of a circle for a
-given radius.
+Participants must develop a code to find where two or more time series overlap.
+The range of each time series is represented as a pair of numbers,
+which are the time the interval started and ended.
+The output is the largest range that they all include:
 
-### Ideation & Requirements
+![Range overlap](../assets/img/project/range_overlap.png)
 
-Although the problem seems simple, some requirements will be added during the
-**Ideation and requirements** steps.
+## Project Workflow
 
-The objective of this exercise is to show how the solution to each problem can
-vary according to the research needs and that, therefore, before starting to
-write the code, it is necessary to fully understand what is being requested.
-
-The requirements:
-
-- The main requirement is that **no** predefined value for `pi` should be used.
-- The value of `pi` (from math package, for example) can, however, be used to check the accuracy of the result.
-- The result can have a maximum error of 0.01% compared to standard methods (using `pi` from math package and `pi*r**2`)
-
-Some ideas to brainstorm:
-
-- Create a method to return the value of `pi`.
-- Create a method to return the error.
-  - better: make the program stop only when it reaches the desired error
-- Generalize the code to allow the inclusion of the volume calculation (using the same method in 3 dimensions)
-- Generalize the code to allow the inclusion of other areas related to circle, such as cylinder and cone.
-- Produce some outputs plots.
+1. Brainstorm to define all necessary tasks
+2. List all scenarios/tests
+3. Setup the project structure
+4. Setup the environment
+5. Develop the test unit
+6. Develop the main code
+7. Develop some documentation
+8. Update the GitHub
+9. EXTRA: Using GitHub actions to trigger pytest. See more [here](https://vilisimo.com/blog/setting-up-pytest-with-github-actions/).
 
 *Please note that these ideas are just a starting point - participants will be free to design their project, as long as they respect the main idea and requirements.*
