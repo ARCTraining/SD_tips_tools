@@ -1,12 +1,13 @@
 # Test-driven development
 
-An assertion checks that something is true at a particular point in the program. The next step is to check the overall behaviour of a piece of code, i.e., to make sure that it produces the right output when it’s given a particular input. For example, suppose we need to find where two or more time series overlap. The range of each time series is represented as a pair of numbers, which are the time the interval started and ended. The output is the largest range that they all include:
+An assertion checks that something is true at a particular point in the program.
+The next step is to check the overall behaviour of a piece of code, i.e., to make sure that it produces the right output when it’s given a particular input.
 
-![Range overlap](../assets/img/project/range_overlap.png)
+- For example, suppose we need to find the result of a number divided by another number:
 
 ## Naive solution
 
-- Write a function `range_overlap`.
+- Write a function `a_div_b`.
 - Call it interactively on two or three different inputs.
 - If it produces the wrong answer, fix the function and re-run that test.
 
@@ -15,8 +16,8 @@ This clearly works — after all, thousands of scientists are doing it right now
 ## Test-driven development solution
 
 - Write a short function for each test.
-- Write a `range_overlap` function that should pass those tests.
-- If `range_overlap` produces any wrong answers, fix it and re-run the test functions.
+- Write a `a_div_b` function that should pass those tests.
+- If `a_div_b` produces any wrong answers, fix it and re-run the test functions.
 
 Writing the tests before writing the function they exercise is called **test-driven development (TDD)**.
 Its advocates believe it produces better code faster because:
@@ -24,56 +25,60 @@ Its advocates believe it produces better code faster because:
 - If people write tests after writing the thing to be tested, they are subject to confirmation bias, i.e., they subconsciously write tests to show that their code is correct, rather than to find errors.
 - Writing tests helps programmers figure out what the function is actually supposed to do.
 
-## Possible tests: range overlap example
+## Possible tests: `a_div_b` example
 
 Let's think in all possible scenarios for this problem and how we could test them.
 
-### No overlap
-
-Considering two or more ranges, there is a possibility that there is no overlap.
+### Bigger by smaller
 
 Example:
 
-- Using this range `[(0.0, 1.0), (5.0, 6.0)]`, the answer should be `None`.
+- Using this range `4, 2`, the answer should be `2`.
 
 :::{dropdown} Check the example code:
 
 ```python
-assert range_overlap([ (0.0, 1.0), (5.0, 6.0) ]) == None
+assert a_div_b(4, 2) == 2
 ```
 
 :::
 
-### Length zero
-
-Considering two or more ranges, there is a possibility that there are two points
-with the same value, but still not overlapping.
+### Smaller by bigger
 
 Example:
 
-- Using this range `[(0.0, 1.0), (1.0, 2.0)]`, the answer should be `None`.
+- Using this range `2, 4`, the answer should be `0.5`.
 
 :::{dropdown} Check the example code:
 
 ```python
-assert range_overlap([ (0.0, 1.0), (1.0, 2.0) ]) == None
+assert a_div_b(2, 4) == 0.5
 ```
 
 :::
 
-### Single range
+### Negative numbers
 
-If we pass just one range, the overlapping should be the same range.
+If we pass two negative numbers, the answer should be positive.
+We can do two different tests here:
 
 :::{dropdown} Check the example code:
 
 ```python
-assert range_overlap([ (0.0, 1.0) ]) == (0.0, 1.0)
+assert a_div_b(-4, -2) == 2
 ```
 
 :::
 
-Or... we could define that we need at least two ranges!
+Or... 
+
+:::{dropdown} Check the example code:
+
+```python
+assert a_div_b(-4, -2) > 0
+```
+
+:::
 
 ### Negative range
 
@@ -87,35 +92,7 @@ Example
 :::{dropdown} Check the example code:
 
 ```python
-assert range_overlap([ (0.0, 1.0), (0.0, 2.0), (-1.0, 1.0) ]) == (0.0, 1.0)
-```
-
-:::
-
-### Other possibilities
-
-- same ranges
-- overlapping ranges
-- tree or more ranges
-
-## Range overlapping function
-
-::: {dropdown} Check an idea for the `range_overlap` function
-
-```python
-def range_overlap(ranges):
-    """Return common overlap among a set of [low, high] ranges"""
-    lowest = ranges[0][0]
-    highest = ranges[0][1]
-    for (low, high) in ranges:
-        lowest = max(lowest, low)
-        highest = min(highest, high)
-        if lowest > highest:
-            return None
-        elif lowest == highest:
-            return None
-        else:
-            return (lowest, highest)
+assert a_div_b([ (0.0, 1.0), (0.0, 2.0), (-1.0, 1.0) ]) == (0.0, 1.0)
 ```
 
 :::
