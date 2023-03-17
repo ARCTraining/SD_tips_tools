@@ -70,29 +70,12 @@ assert a_div_b(-4, -2) == 2
 
 :::
 
-Or... 
+Or...
 
 :::{dropdown} Check the example code:
 
 ```python
 assert a_div_b(-4, -2) > 0
-```
-
-:::
-
-### Negative range
-
-If one of our ranges has a negative value, the code returns the desired value?
-
-Example
-
-- the ranges `[(0.0, 1.0), (0.0, 2.0), (-1.0, 1.0)]` should return the overlapping
-`(0.0, 1.0)`
-
-:::{dropdown} Check the example code:
-
-```python
-assert a_div_b([ (0.0, 1.0), (0.0, 2.0), (-1.0, 1.0) ]) == (0.0, 1.0)
 ```
 
 :::
