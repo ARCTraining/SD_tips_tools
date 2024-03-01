@@ -2,7 +2,7 @@
 
 ## About
 
-Book used in Training sessions for first year CDT Fluid Dynamics students - 2022
+Book used in Training sessions for first year CDT Fluid Dynamics students
 
 [Book Link](https://arctraining.github.io/SD_tips_tools/)
 
