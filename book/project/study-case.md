@@ -12,9 +12,9 @@ The aim is to practice:
   - Development
   - Testing
 - Make use of good practices:
-  - virtual environment (using `conda`)
+  - environment (using `conda`)
   - project layout
-  - code formatting (using `black`)
+  - code formatting (using `black` and `flake8`)
 - Use version control collaboratively:
   - git
   - GitHub
@@ -23,25 +23,48 @@ The aim is to practice:
     - issues
 - Test-driven development
 
-## The Problem
+## The Hypotenuse Problem
 
-Participants must develop a code to find where two or more time series overlap.
-The range of each time series is represented as a pair of numbers,
-which are the time the interval started and ended.
-The output is the largest range that they all include:
+Calculating the hypotenuse
 
-![Range overlap](../assets/img/project/range_overlap.png)
+$$ c = \sqrt{a^2 + b^2} $$
+
+General Design
+
+- 1 squared function
+- 1 sum function
+- 1 square root function
+- 1 hypotenuse function that uses the functions above
 
 ## Project Workflow
 
-1. Brainstorm to define all necessary tasks
-2. List all scenarios/tests
-3. Setup the project structure
-4. Setup the environment
-5. Develop the test unit
-6. Develop the main code
-7. Develop some documentation
-8. Update the GitHub
-9. EXTRA: Using GitHub actions to trigger pytest. See more [here](https://vilisimo.com/blog/setting-up-pytest-with-github-actions/).
+Ideally, this is a task to be done in pairs.
+
+1. Install Git, Anaconda, VScode
+2. Create a GitHub repository + Licence + .gitignore + Readme
+3. Setup GH Action for testing (Python Application)
+4. Clone GH repository in local machines
+5. Brainstorm to define all necessary tasks
+6. List all scenarios/tests
+7. Create project structure (source (name of the package) and test folders)
+8. Setup the environment
+9. Develop the test unit (start with `test_`)
+10. Develop the main code
+11. Lint code and tests
+12. Develop some documentation (you can use `autoDocstring - Python Docstring Generator on VS Code`)
+13. Update the GitHub
+14. Check the action: is your code linted, is your code passing the tests?
 
 *Please note that these ideas are just a starting point - participants will be free to design their project, as long as they respect the main idea and requirements.*
+
+## Solution
+
+The [`swd3-demo` repository](https://github.com/ARCTraining/swd3-demo) is a demonstration of how this project can be solved.
+It also includes some additional features:
+
+- Source Code
+- Test with Pytest Framework
+- Documentation website with Sphinx Framework
+- Installation file for local install
+- GitHub Actions for Linting, testing, and create documentation
+- Release
