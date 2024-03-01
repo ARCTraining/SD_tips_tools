@@ -1,4 +1,4 @@
-# Software development - good practices and tips
+# Software development - Good Practices and Tips
 
 :::{note}
 RSE training sessions for first year CDT Fluid Dynamics students
@@ -34,13 +34,11 @@ RSE training sessions for first year CDT Fluid Dynamics students
 
 *The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.*
 
-## Slides
+## Additional Material
 
-- [Software development in a nutshell](https://raw.githack.com/ARCTraining/SD_tips_tools/main/slides/CDT-training_1.html)
-- [Introduction to Version Control](https://raw.githack.com/ARCTraining/SD_tips_tools/main/slides/CDT-training_2-1.html)
-- [Defensive Program](https://raw.githack.com/ARCTraining/SD_tips_tools/main/slides/CDT-training_3-1.html)
-- [Test Driven Development](https://raw.githack.com/ARCTraining/SD_tips_tools/main/slides/CDT-training_3-2.html)
-- [Final Project](https://raw.githack.com/ARCTraining/SD_tips_tools/main/slides/CDT-training_3-3.html)
+- [Slides](https://arctraining.github.io/rc-slides/swd3.html#/meta-code)
+- [Demo Repository](https://github.com/ARCTraining/swd3-demo)
+- [Alan Turing Institute RSE Course Material](https://alan-turing-institute.github.io/rse-course/html/index.html)
 
 ## Instructors
 
