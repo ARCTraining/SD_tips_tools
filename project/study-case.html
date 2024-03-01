@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'project/study-case';</script>
     <link rel="canonical" href="https://github.com/ARCTraining/SD_tips_tools/project/study-case.html" />
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
@@ -407,8 +409,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hypotenuse-problem">The Hypotenuse Problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-workflow">Project Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
 </ul>
             </nav>
         </div>
@@ -437,9 +440,9 @@ training.</p>
 </li>
 <li><p>Make use of good practices:</p>
 <ul>
-<li><p>virtual environment (using <code class="docutils literal notranslate"><span class="pre">conda</span></code>)</p></li>
+<li><p>environment (using <code class="docutils literal notranslate"><span class="pre">conda</span></code>)</p></li>
 <li><p>project layout</p></li>
-<li><p>code formatting (using <code class="docutils literal notranslate"><span class="pre">black</span></code>)</p></li>
+<li><p>code formatting (using <code class="docutils literal notranslate"><span class="pre">black</span></code> and <code class="docutils literal notranslate"><span class="pre">flake8</span></code>)</p></li>
 </ul>
 </li>
 <li><p>Use version control collaboratively:</p>
@@ -456,28 +459,52 @@ training.</p>
 </li>
 <li><p>Test-driven development</p></li>
 </ul>
-<section id="the-problem">
-<h2>The Problem<a class="headerlink" href="#the-problem" title="Permalink to this heading">#</a></h2>
-<p>Participants must develop a code to find where two or more time series overlap.
-The range of each time series is represented as a pair of numbers,
-which are the time the interval started and ended.
-The output is the largest range that they all include:</p>
-<p><img alt="Range overlap" src="../_images/range_overlap.png" /></p>
+<section id="the-hypotenuse-problem">
+<h2>The Hypotenuse Problem<a class="headerlink" href="#the-hypotenuse-problem" title="Permalink to this heading">#</a></h2>
+<p>Calculating the hypotenuse</p>
+<div class="math notranslate nohighlight">
+\[ c = \sqrt{a^2 + b^2} \]</div>
+<p>General Design</p>
+<ul class="simple">
+<li><p>1 squared function</p></li>
+<li><p>1 sum function</p></li>
+<li><p>1 square root function</p></li>
+<li><p>1 hypotenuse function that uses the functions above</p></li>
+</ul>
 </section>
 <section id="project-workflow">
 <h2>Project Workflow<a class="headerlink" href="#project-workflow" title="Permalink to this heading">#</a></h2>
+<p>Ideally, this is a task to be done in pairs.</p>
 <ol class="arabic simple">
+<li><p>Install Git, Anaconda, VScode</p></li>
+<li><p>Create a GitHub repository + Licence + .gitignore + Readme</p></li>
+<li><p>Setup GH Action for testing (Python Application)</p></li>
+<li><p>Clone GH repository in local machines</p></li>
 <li><p>Brainstorm to define all necessary tasks</p></li>
 <li><p>List all scenarios/tests</p></li>
-<li><p>Setup the project structure</p></li>
+<li><p>Create project structure (source (name of the package) and test folders)</p></li>
 <li><p>Setup the environment</p></li>
-<li><p>Develop the test unit</p></li>
+<li><p>Develop the test unit (start with <code class="docutils literal notranslate"><span class="pre">test_</span></code>)</p></li>
 <li><p>Develop the main code</p></li>
-<li><p>Develop some documentation</p></li>
+<li><p>Lint code and tests</p></li>
+<li><p>Develop some documentation (you can use <code class="docutils literal notranslate"><span class="pre">autoDocstring</span> <span class="pre">-</span> <span class="pre">Python</span> <span class="pre">Docstring</span> <span class="pre">Generator</span> <span class="pre">on</span> <span class="pre">VS</span> <span class="pre">Code</span></code>)</p></li>
 <li><p>Update the GitHub</p></li>
-<li><p>EXTRA: Using GitHub actions to trigger pytest. See more <a class="reference external" href="https://vilisimo.com/blog/setting-up-pytest-with-github-actions/">here</a>.</p></li>
+<li><p>Check the action: is your code linted, is your code passing the tests?</p></li>
 </ol>
 <p><em>Please note that these ideas are just a starting point - participants will be free to design their project, as long as they respect the main idea and requirements.</em></p>
+</section>
+<section id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://github.com/ARCTraining/swd3-demo"><code class="docutils literal notranslate"><span class="pre">swd3-demo</span></code> repository</a> is a demonstration of how this project can be solved.
+It also includes some additional features:</p>
+<ul class="simple">
+<li><p>Source Code</p></li>
+<li><p>Test with Pytest Framework</p></li>
+<li><p>Documentation website with Sphinx Framework</p></li>
+<li><p>Installation file for local install</p></li>
+<li><p>GitHub Actions for Linting, testing, and create documentation</p></li>
+<li><p>Release</p></li>
+</ul>
 </section>
 </section>
 
@@ -507,7 +534,10 @@ The output is the largest range that they all include:</p>
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="overview.html"
@@ -518,7 +548,10 @@ The output is the largest range that they all include:</p>
         <p class="prev-next-title">Bringing it all together</p>
       </div>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -533,8 +566,9 @@ The output is the largest range that they all include:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hypotenuse-problem">The Hypotenuse Problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-workflow">Project Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
 </ul>
   </nav></div>
 
@@ -543,7 +577,7 @@ The output is the largest range that they all include:</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -573,7 +607,7 @@ By University of Leeds Research Computing Team
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -582,8 +616,8 @@ By University of Leeds Research Computing Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
